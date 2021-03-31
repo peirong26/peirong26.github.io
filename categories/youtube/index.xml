@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>youtube on moco</title>
+    <link>https://kywk.github.io/moco/categories/youtube/</link>
+    <description>Recent content in youtube on moco</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 07 Feb 2021 11:46:48 +0800</lastBuildDate><atom:link href="https://kywk.github.io/moco/categories/youtube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用 youtube-dl 下載 Youtube 影片</title>
+      <link>https://kywk.github.io/moco/posts/2021/02/yt_youtube-dl/</link>
+      <pubDate>Sun, 07 Feb 2021 11:46:48 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/posts/2021/02/yt_youtube-dl/</guid>
+      <description>一直都是利用播放清單和 Like 來當作 Youtube 影片的書籤. 不過陸續發現有些影片會無預期被刪除或改為私人影片, 也有些頻道會莫名消失.
+單純音樂類的播放清單就算了, 但有些專業參考性質的影片需要時找不到, 故發起把影片下載保存的念頭,
+網路上有不少下載 Youtube 影片的線上網站和 App, 試用過後最後回到最適合工程師的 youtube-dl
+youtube-dl youtube-dl 是個 OpenSource 專案, 有興趣研究的可在 GitHub 上 Fork 專案.
+日前曾因可能違反 DMCA 而導致 GitHub 上所有 youtube-dl 專案都被下架. (是的, 不單 youtube 影片可能下架, 連下載工具都可能被下架) 所幸後來在眾多熱心法律專業人士協助下, 確認並不違反 DMCA 而恢復專案. 完整故事可到官方 blog 查看.
+install Mac 上透過 brew 安裝 youtube-dl 相當簡單.
+$ brew install youtube-dl ffmpeg youtube-dl 是 python script, 利用 python 適合寫爬蟲的特性, 解析 youtube 影片位置並下載. 目前 youtube 網站中高畫質格式多為 video-only 或 audio-only 的 webm 格式, 傳統 mp4 格式大多只到 720p.</description>
+    </item>
+    
+  </channel>
+</rss>

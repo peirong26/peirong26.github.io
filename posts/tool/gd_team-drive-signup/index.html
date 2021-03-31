@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Moo Cow">
+    <meta name="description" content="Google Drive 團隊硬碟 Google 針對商業和教育用戶推出了 Team Drive (團隊硬碟), 上傳到團隊硬碟中的檔案, 所有權屬於該團隊硬碟管理員和團隊管理員, 可解決員工離職後員工所存放的檔案失效的問題. 團隊硬碟也可以分享給團隊外的成員, 和外部廠商合作時可以讓廠商上傳檔案. 由於檔案所有權屬於管理員, 也可避免廠商擅自移除檔案.
+Google Drive 團隊硬碟在線自助領取 目前團隊硬碟的容量為無限容量, 也未限制每個用戶能開設的團隊硬碟數量, 故有些企業或教育用戶管理員開放大眾使用該組織的團隊硬碟.
+這樣的使用並不完全符合 Google 規範, 且管理員也有權隨時取消團隊硬碟. 使用前還是要先評估.
+近來 Google 對於無限容量服務策略有不少調整, 無限空間可能隨時會被 Google 取消收回, 使用相關服務請三思. 可以拿來存放網路資源, 加密異地備份, 但避免存放個人重要資料.
+系列文還在編寫的同時, 之前申請的某個團隊營碟就硬生生消失了. 別把重要資料放團隊碟, 多申請幾組, 設定備份才是使用團隊硬碟較為保險的方式.
+下列申請網址隨時可能失效, 有些達到 API 單日上限, 隔日再試即可.
+ 無限次免費Google TeamDrive: https://td.fastio.me 英國老牌名校謝菲爾德大學團隊盤: https://gdrive.zppcw.cn  failed at 2020-12-17
+ yesyesxx.me: https://gd.zxd.workers.dev/ 台灣中正大學團隊盤: https://gd.404edu.workers.dev/ 404 NOT FOUND團隊盤: http://leon.educationhost.cloud  Google Drive 團隊硬碟領取方式 發文時只剩第一組連結能成功申請, 以下說明以該服務為例, 其他連結申請方式大同小異.">
+    <meta name="keywords" content="blog,developer">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Google Team Drive 無限空間申請"/>
+<meta name="twitter:description" content="Google Drive 團隊硬碟 Google 針對商業和教育用戶推出了 Team Drive (團隊硬碟), 上傳到團隊硬碟中的檔案, 所有權屬於該團隊硬碟管理員和團隊管理員, 可解決員工離職後員工所存放的檔案失效的問題. 團隊硬碟也可以分享給團隊外的成員, 和外部廠商合作時可以讓廠商上傳檔案. 由於檔案所有權屬於管理員, 也可避免廠商擅自移除檔案.
+Google Drive 團隊硬碟在線自助領取 目前團隊硬碟的容量為無限容量, 也未限制每個用戶能開設的團隊硬碟數量, 故有些企業或教育用戶管理員開放大眾使用該組織的團隊硬碟.
+這樣的使用並不完全符合 Google 規範, 且管理員也有權隨時取消團隊硬碟. 使用前還是要先評估.
+近來 Google 對於無限容量服務策略有不少調整, 無限空間可能隨時會被 Google 取消收回, 使用相關服務請三思. 可以拿來存放網路資源, 加密異地備份, 但避免存放個人重要資料.
+系列文還在編寫的同時, 之前申請的某個團隊營碟就硬生生消失了. 別把重要資料放團隊碟, 多申請幾組, 設定備份才是使用團隊硬碟較為保險的方式.
+下列申請網址隨時可能失效, 有些達到 API 單日上限, 隔日再試即可.
+ 無限次免費Google TeamDrive: https://td.fastio.me 英國老牌名校謝菲爾德大學團隊盤: https://gdrive.zppcw.cn  failed at 2020-12-17
+ yesyesxx.me: https://gd.zxd.workers.dev/ 台灣中正大學團隊盤: https://gd.404edu.workers.dev/ 404 NOT FOUND團隊盤: http://leon.educationhost.cloud  Google Drive 團隊硬碟領取方式 發文時只剩第一組連結能成功申請, 以下說明以該服務為例, 其他連結申請方式大同小異."/>
+
+    <meta property="og:title" content="Google Team Drive 無限空間申請" />
+<meta property="og:description" content="Google Drive 團隊硬碟 Google 針對商業和教育用戶推出了 Team Drive (團隊硬碟), 上傳到團隊硬碟中的檔案, 所有權屬於該團隊硬碟管理員和團隊管理員, 可解決員工離職後員工所存放的檔案失效的問題. 團隊硬碟也可以分享給團隊外的成員, 和外部廠商合作時可以讓廠商上傳檔案. 由於檔案所有權屬於管理員, 也可避免廠商擅自移除檔案.
+Google Drive 團隊硬碟在線自助領取 目前團隊硬碟的容量為無限容量, 也未限制每個用戶能開設的團隊硬碟數量, 故有些企業或教育用戶管理員開放大眾使用該組織的團隊硬碟.
+這樣的使用並不完全符合 Google 規範, 且管理員也有權隨時取消團隊硬碟. 使用前還是要先評估.
+近來 Google 對於無限容量服務策略有不少調整, 無限空間可能隨時會被 Google 取消收回, 使用相關服務請三思. 可以拿來存放網路資源, 加密異地備份, 但避免存放個人重要資料.
+系列文還在編寫的同時, 之前申請的某個團隊營碟就硬生生消失了. 別把重要資料放團隊碟, 多申請幾組, 設定備份才是使用團隊硬碟較為保險的方式.
+下列申請網址隨時可能失效, 有些達到 API 單日上限, 隔日再試即可.
+ 無限次免費Google TeamDrive: https://td.fastio.me 英國老牌名校謝菲爾德大學團隊盤: https://gdrive.zppcw.cn  failed at 2020-12-17
+ yesyesxx.me: https://gd.zxd.workers.dev/ 台灣中正大學團隊盤: https://gd.404edu.workers.dev/ 404 NOT FOUND團隊盤: http://leon.educationhost.cloud  Google Drive 團隊硬碟領取方式 發文時只剩第一組連結能成功申請, 以下說明以該服務為例, 其他連結申請方式大同小異." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kywk.github.io/moco/posts/tool/gd_team-drive-signup/" />
+<meta property="article:published_time" content="2020-12-07T11:35:05+08:00" />
+<meta property="article:modified_time" content="2020-12-07T11:35:05+08:00" />
+
+
+    <title>
+  Google Team Drive 無限空間申請 · moco
+</title>
+
+    
+      <link rel="canonical" href="https://kywk.github.io/moco/posts/tool/gd_team-drive-signup/">
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    
+      
+      
+      <link rel="stylesheet" href="/moco/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/moco/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/moco/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/moco/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/moco/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/moco/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/moco">
+      moco
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/moco/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/moco/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/moco/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/moco/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Google Team Drive 無限空間申請</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2020-12-07T11:35:05&#43;08:00'>
+                Dec 7, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/moco/categories/google-drive/">google-drive</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="/moco/tags/google-drive/">google-drive</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="google-drive-團隊硬碟">Google Drive 團隊硬碟</h2>
+<p>Google 針對商業和教育用戶推出了 Team Drive (團隊硬碟),
+上傳到團隊硬碟中的檔案, 所有權屬於該團隊硬碟管理員和團隊管理員,
+可解決員工離職後員工所存放的檔案失效的問題.
+團隊硬碟也可以分享給團隊外的成員, 和外部廠商合作時可以讓廠商上傳檔案.
+由於檔案所有權屬於管理員, 也可避免廠商擅自移除檔案.</p>
+<h2 id="google-drive-團隊硬碟在線自助領取">Google Drive 團隊硬碟在線自助領取</h2>
+<p>目前團隊硬碟的容量為無限容量, 也未限制每個用戶能開設的團隊硬碟數量,
+故有些企業或教育用戶管理員開放大眾使用該組織的團隊硬碟.</p>
+<p><strong>這樣的使用並不完全符合 Google 規範, 且管理員也有權隨時取消團隊硬碟. 使用前還是要先評估.</strong></p>
+<p>近來 Google 對於無限容量服務策略有不少調整, 無限空間可能隨時會被 Google 取消收回, 使用相關服務請三思.
+可以拿來存放網路資源, 加密異地備份, 但避免存放個人重要資料.</p>
+<p><strong>系列文還在編寫的同時, 之前申請的某個團隊營碟就硬生生消失了.</strong>
+<strong>別把重要資料放團隊碟, 多申請幾組, 設定備份才是使用團隊硬碟較為保險的方式.</strong></p>
+<p><em>下列申請網址隨時可能失效, 有些達到 API 單日上限, 隔日再試即可.</em></p>
+<ul>
+<li>無限次免費Google TeamDrive: <a href="https://td.fastio.me">https://td.fastio.me</a></li>
+<li>英國老牌名校謝菲爾德大學團隊盤: <a href="https://gdrive.zppcw.cn">https://gdrive.zppcw.cn</a></li>
+</ul>
+<p><em>failed at 2020-12-17</em></p>
+<ul>
+<li>yesyesxx.me: <a href="https://gd.zxd.workers.dev/">https://gd.zxd.workers.dev/</a></li>
+<li>台灣中正大學團隊盤: <a href="https://gd.404edu.workers.dev/">https://gd.404edu.workers.dev/</a></li>
+<li>404 NOT FOUND團隊盤: <a href="http://leon.educationhost.cloud">http://leon.educationhost.cloud</a></li>
+</ul>
+<h2 id="google-drive-團隊硬碟領取方式">Google Drive 團隊硬碟領取方式</h2>
+<p>發文時只剩第一組連結能成功申請, 以下說明以該服務為例, 其他連結申請方式大同小異.</p>
+<p>申請方式相當簡單, 僅需提供想創建的團隊硬碟名稱以及一組 GMail 即可.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3ducDNLej9_d4oGUoBSqOyMg0ow3SZE2ata_nVHjAM3Leq-JJbOAk_I4CR37NGuAAFVdDLW1cB_umiXPiN2CycbPHCJI_HLzKhrNKoQbL3lGyCS-ivjdI4zCLmjr3_vI9Aroq1zZzhQhDwLfBwdxgWL0g=w557-h637-no?authuser=0" alt=""></p>
+<p><strong>再次強調, 這樣的使用並不完全符合 Google 規範, 建議使用小號申請該服務</strong></p>
+<p>申請成功後即可在 Google Drive 裡共用雲端硬碟看到剛剛新增的團隊硬碟.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3f3uGznIhBHl6wx59Q-9Uw3-lKdZhkACvQ3lJ7V_jDuFgikirN1WLBoobSFPfhwR2vtLmfaxeOCTIKzGB6c93uH9eIoYGBN6_wk_eECrTH2Nu5amz6vsPeez0QjwiJQ_UHERMPQUiC13JhQhE3Si39Luw=w603-h730-no?authuser=0" alt=""></p>
+<p>因為是用小號申請的, 使用時需切換帳號.<br>
+若希望不切換帳號快速存取硬碟, 可透過管理成員, 把主要帳號加入團隊硬碟管理員.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cCntHjbyEr94JMuqlB0GgTe2dZqSclbCnxOAtiWGT-dqN0XsX25gtv-TXTxs3ZeD6EGQNN2Z_9Owg_EGg5uiT6LO6HzkvEPA0W5vvPVZ0dDMGwltGY70cMf0dqZQOPiLIjSVs-8mF-0zR5OOIVX9GvFg=w694-h722-no?authuser=0" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cqIiXDLMJiRwGZxgOk1YKqe8zLTPZN71U0JlaCEtT79PsIjT3DSwSR_RVQASOsoI4T9M-clemg5g2pOcxaIgSE_hxCZFQWKFLhEKRSUzN_Wd6SB8BgIc3bDWzI7ijarA391IrcHF1fqIWwsbjq1J6H9g=w652-h356-no?authuser=0" alt=""></p>
+<p>這樣一來, 主帳號的共用雲端硬碟中就可看到剛剛新增的團隊硬碟, 方便直接使用主帳號來管理檔案.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eGG1rB0uw5DD4qaNDlSYTVzISkevn8c7ImHyhkvpd8YQLnfyi7sNJ1ZiDPJGt54Nw3rFkWOgCBuJImhwyRVSRDwFFUZ58Nc79xeorNR66sBL4NFkNypuD0Xu4j-vYt61lo8HmoqSFf2LkoGdFDd7TE8g=w467-h307-no?authuser=0" alt=""></p>
+<p>當然, 如果對帳號安全性比較敏感的, 不要關聯到主帳號比較妥當.<br>
+畢竟生殺大權在 Google 手上, 誰也不敢保證未來的變化會如何.</p>
+<p>且後續要介紹的 rclone / autorclone 用小號就可以進行操作, 無須使用主帳號.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://zh.vpnclub.cc/get-google-drive-unlimited-storage-plan/">Google Drive 雲端硬碟無限容量不用購買免費取得開通教學文 | 跳板俱樂部</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kywk-moco" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.</p>
+      
+      
+        ©
+        
+          2020 -
+        
+        2021
+         Moo Cow 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+        
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/moco/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+    <script async defer data-domain="example.com" src="https://analytics.example.com/js/plausible.js"></script>
+
+
+    
+
+    
+  </body>
+
+</html>

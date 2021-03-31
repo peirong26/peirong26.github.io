@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dev on moco</title>
+    <link>https://kywk.github.io/moco/tags/dev/</link>
+    <description>Recent content in dev on moco</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 26 Feb 2021 14:53:37 +0800</lastBuildDate><atom:link href="https://kywk.github.io/moco/tags/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS 開發環境建構 2021 Feb</title>
+      <link>https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/</link>
+      <pubDate>Fri, 26 Feb 2021 14:53:37 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/</guid>
+      <description>CLI Environment iTerm2 $ brew install iterm2 zsh and oh-my-zsh macOS Mojave (10.14.x) 開始內建 zsh, 而 Catalina (10.15.x) 以後預設 Shell 改為 zsh.
+在 macOS Mojave 系統要把預設 shell 改為 zsh 以及配置 zsh 最方便也推薦的方式就是透過 Oh My Zsh
+Oh My Zsh
+macOS Mojave 以後已經內建 Zsh, 所以直接安裝 Oh My Zsh 即可.
+$ sh -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;#34; $ brew install zsh-completion Powerline Font $ brew tap homebrew/cask-fonts $ brew install font-fira-code font-fira-mono font-fira-sans $ brew install font-source-code-pro $ brew install font-hack-nerd-font Base Environment Docker $ brew install --cask docker Brew formulae $ brew install git tig tmux ncdu htop lesspipe tldr diff-so-fancy fd ripgrep thefuck ag Program Language Node.</description>
+    </item>
+    
+  </channel>
+</rss>

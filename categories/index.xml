@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on moco</title>
+    <link>https://kywk.github.io/moco/categories/</link>
+    <description>Recent content in Categories on moco</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 16 Mar 2021 16:58:20 +0800</lastBuildDate><atom:link href="https://kywk.github.io/moco/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ubuntu</title>
+      <link>https://kywk.github.io/moco/categories/ubuntu/</link>
+      <pubDate>Tue, 16 Mar 2021 16:58:20 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/categories/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macos</title>
+      <link>https://kywk.github.io/moco/categories/macos/</link>
+      <pubDate>Mon, 15 Mar 2021 15:33:18 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/categories/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chrome</title>
+      <link>https://kywk.github.io/moco/categories/chrome/</link>
+      <pubDate>Tue, 09 Mar 2021 14:37:59 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/categories/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sublime-text</title>
+      <link>https://kywk.github.io/moco/categories/sublime-text/</link>
+      <pubDate>Mon, 01 Mar 2021 14:37:45 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/categories/sublime-text/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google-drive</title>
+      <link>https://kywk.github.io/moco/categories/google-drive/</link>
+      <pubDate>Fri, 19 Feb 2021 11:35:05 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/categories/google-drive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>youtube</title>
+      <link>https://kywk.github.io/moco/categories/youtube/</link>
+      <pubDate>Sun, 07 Feb 2021 11:46:48 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/categories/youtube/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cli</title>
+      <link>https://kywk.github.io/moco/categories/cli/</link>
+      <pubDate>Thu, 10 Dec 2020 17:31:07 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/categories/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://kywk.github.io/moco/categories/hugo/</link>
+      <pubDate>Sat, 24 Oct 2020 17:05:52 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
