@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Moo Cow ">
+<meta name="description" content="過去重灌電腦最麻煩的就是還原設定檔, 雖然 Mac 有 TimeMachine 可無痛轉移, 但個人癖好還是喜歡重新檢視與安裝設定. 但越來越多軟體可以把配置設定存在雲端, 不但保持多台電腦間的同步, 重灌也只需登入帳號就可還原配置, 個人以為比 TimeMachine 方便.
+但仍有些開發或 CLI 工具, 是將配置檔存放於家目錄下的隱藏檔 (.files), 無法透過雲端同步. 我是把這些檔案搬移到 Dropbox 資料夾下, 再建立 Symbolic Link, 如此就可透過 Dropbox 來同步設定檔.
+現在重灌電腦要安裝設定環境, 僅需透過 shell script 安裝軟體與建立 Symbolic Link, 相當無痛.
+CLI Environment iTerm2 $ brew install iterm2 zsh and oh-my-zsh macOS Mojave (10.14.x) 開始內建 zsh, 而 Catalina (10.15.x) 以後預設 Shell 改為 zsh.
+在 macOS Mojave 系統要把預設 shell 改為 zsh 以及配置 zsh 最方便也推薦的方式就是透過 Oh My Zsh" />
+<meta name="keywords" content="blog,developer, kywk, macos" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/" />
+
+
+    <title>
+        
+            macOS 開發環境建構 2021 Feb :: moco  — Backend Engineer in node.js and Go
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://kywk.github.io/moco/main.9e9f1cb5a3cb411dd947abeb00050cc01a83681292b515813ef6fa4568889805.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kywk.github.io/moco/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://kywk.github.io/moco/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://kywk.github.io/moco/favicon-16x16.png">
+    <link rel="manifest" href="https://kywk.github.io/moco/site.webmanifest">
+    <link rel="mask-icon" href="https://kywk.github.io/moco/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://kywk.github.io/moco/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="macOS 開發環境建構 2021 Feb">
+<meta itemprop="description" content="過去重灌電腦最麻煩的就是還原設定檔, 雖然 Mac 有 TimeMachine 可無痛轉移, 但個人癖好還是喜歡重新檢視與安裝設定. 但越來越多軟體可以把配置設定存在雲端, 不但保持多台電腦間的同步, 重灌也只需登入帳號就可還原配置, 個人以為比 TimeMachine 方便.
+但仍有些開發或 CLI 工具, 是將配置檔存放於家目錄下的隱藏檔 (.files), 無法透過雲端同步. 我是把這些檔案搬移到 Dropbox 資料夾下, 再建立 Symbolic Link, 如此就可透過 Dropbox 來同步設定檔.
+現在重灌電腦要安裝設定環境, 僅需透過 shell script 安裝軟體與建立 Symbolic Link, 相當無痛.
+CLI Environment iTerm2 $ brew install iterm2 zsh and oh-my-zsh macOS Mojave (10.14.x) 開始內建 zsh, 而 Catalina (10.15.x) 以後預設 Shell 改為 zsh.
+在 macOS Mojave 系統要把預設 shell 改為 zsh 以及配置 zsh 最方便也推薦的方式就是透過 Oh My Zsh"><meta itemprop="datePublished" content="2021-02-26T14:53:37&#43;08:00" />
+<meta itemprop="dateModified" content="2021-02-26T14:53:37&#43;08:00" />
+<meta itemprop="wordCount" content="509"><meta itemprop="image" content="https://kywk.github.io/moco"/>
+<meta itemprop="keywords" content="kywk,macos," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://kywk.github.io/moco"/>
+
+<meta name="twitter:title" content="macOS 開發環境建構 2021 Feb"/>
+<meta name="twitter:description" content="過去重灌電腦最麻煩的就是還原設定檔, 雖然 Mac 有 TimeMachine 可無痛轉移, 但個人癖好還是喜歡重新檢視與安裝設定. 但越來越多軟體可以把配置設定存在雲端, 不但保持多台電腦間的同步, 重灌也只需登入帳號就可還原配置, 個人以為比 TimeMachine 方便.
+但仍有些開發或 CLI 工具, 是將配置檔存放於家目錄下的隱藏檔 (.files), 無法透過雲端同步. 我是把這些檔案搬移到 Dropbox 資料夾下, 再建立 Symbolic Link, 如此就可透過 Dropbox 來同步設定檔.
+現在重灌電腦要安裝設定環境, 僅需透過 shell script 安裝軟體與建立 Symbolic Link, 相當無痛.
+CLI Environment iTerm2 $ brew install iterm2 zsh and oh-my-zsh macOS Mojave (10.14.x) 開始內建 zsh, 而 Catalina (10.15.x) 以後預設 Shell 改為 zsh.
+在 macOS Mojave 系統要把預設 shell 改為 zsh 以及配置 zsh 最方便也推薦的方式就是透過 Oh My Zsh"/>
+
+
+
+
+    <meta property="og:title" content="macOS 開發環境建構 2021 Feb" />
+<meta property="og:description" content="過去重灌電腦最麻煩的就是還原設定檔, 雖然 Mac 有 TimeMachine 可無痛轉移, 但個人癖好還是喜歡重新檢視與安裝設定. 但越來越多軟體可以把配置設定存在雲端, 不但保持多台電腦間的同步, 重灌也只需登入帳號就可還原配置, 個人以為比 TimeMachine 方便.
+但仍有些開發或 CLI 工具, 是將配置檔存放於家目錄下的隱藏檔 (.files), 無法透過雲端同步. 我是把這些檔案搬移到 Dropbox 資料夾下, 再建立 Symbolic Link, 如此就可透過 Dropbox 來同步設定檔.
+現在重灌電腦要安裝設定環境, 僅需透過 shell script 安裝軟體與建立 Symbolic Link, 相當無痛.
+CLI Environment iTerm2 $ brew install iterm2 zsh and oh-my-zsh macOS Mojave (10.14.x) 開始內建 zsh, 而 Catalina (10.15.x) 以後預設 Shell 改為 zsh.
+在 macOS Mojave 系統要把預設 shell 改為 zsh 以及配置 zsh 最方便也推薦的方式就是透過 Oh My Zsh" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/" /><meta property="og:image" content="https://kywk.github.io/moco"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-02-26T14:53:37&#43;08:00" />
+<meta property="article:modified_time" content="2021-02-26T14:53:37&#43;08:00" />
+
+
+
+
+
+    <meta property="article:section" content="macos" />
+
+
+
+    <meta property="article:published_time" content="2021-02-26 14:53:37 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://kywk.github.io/moco/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/kywk</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://kywk.github.io/moco/about/">About</a></li><li><a href="https://kywk.github.io/moco/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        3 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/">macOS 開發環境建構 2021 Feb</a>
+      </h1>
+
+      
+
+      
+
+      <div class="post-content">
+        <p>過去重灌電腦最麻煩的就是還原設定檔, 雖然 Mac 有 TimeMachine 可無痛轉移, 但個人癖好還是喜歡重新檢視與安裝設定.
+但越來越多軟體可以把配置設定存在雲端, 不但保持多台電腦間的同步, 重灌也只需登入帳號就可還原配置, 個人以為比 TimeMachine 方便.</p>
+<p>但仍有些開發或 CLI 工具, 是將配置檔存放於家目錄下的隱藏檔 (.files),
+無法透過雲端同步.
+我是把這些檔案搬移到 Dropbox 資料夾下, 再建立 Symbolic Link,
+如此就可透過 Dropbox 來同步設定檔.</p>
+<p>現在重灌電腦要安裝設定環境, 僅需透過 shell script 安裝軟體與建立 Symbolic Link, 相當無痛.</p>
+<!-- raw HTML omitted -->
+<h2 id="cli-environment">CLI Environment</h2>
+<h3 id="iterm2">iTerm2</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install iterm2
+</code></pre></div><h3 id="zsh-and-oh-my-zsh">zsh and oh-my-zsh</h3>
+<p>macOS Mojave (10.14.x) 開始內建 zsh, 而 Catalina (10.15.x) 以後預設 Shell 改為 zsh.</p>
+<p>在 macOS Mojave 系統要把預設 shell 改為 zsh 以及配置 zsh 最方便也推薦的方式就是透過 <a href="https://ohmyz.sh">Oh My Zsh</a></p>
+<p><strong>Oh My Zsh</strong></p>
+<p>macOS Mojave 以後已經內建 Zsh, 所以直接安裝 Oh My Zsh 即可.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install zsh-completion 
+</code></pre></div><h3 id="powerline-font">Powerline Font</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew tap homebrew/cask-fonts
+$ brew install font-fira-code font-fira-mono font-fira-sans
+$ brew install font-source-code-pro
+$ brew install font-hack-nerd-font
+</code></pre></div><h2 id="base-environment">Base Environment</h2>
+<h3 id="docker">Docker</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install --cask docker
+</code></pre></div><h3 id="brew-formulae">Brew formulae</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install git tig tmux ncdu htop lesspipe tldr diff-so-fancy fd ripgrep thefuck ag
+</code></pre></div><h2 id="program-language">Program Language</h2>
+<h3 id="nodejs">Node.js</h3>
+<p><strong><a href="https://nodejs.org/">Node.js</a></strong></p>
+<p><a href="http://goo.gl/26nHDf">Installing Node.js or io.js with nvm</a></p>
+<p><strong>NVM Manual install</strong></p>
+<pre><code>git clone https://github.com/creationix/nvm.git ~/.nvm &amp;&amp; cd ~/.nvm &amp;&amp; git checkout `git describe --abbrev=0 --tags`  
+cat &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; .bashrc
+</code></pre><p><strong>Install node.js</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ nvm install v8.11.1
+$ nvm alias default tls
+$ nvm use default
+</code></pre></div><h3 id="go">Go</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install go
+</code></pre></div><h2 id="ide--gui-tools">IDE &amp; GUI Tools</h2>
+<h3 id="vscode">VSCode</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install --cask visual-studio-code
+</code></pre></div><h3 id="goland">GoLand</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install --cask goland
+</code></pre></div><h3 id="webstorm">WebStorm</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install --cask webstorm
+</code></pre></div><h3 id="others">Others</h3>
+<p><strong><a href="https://git-fork.com/">Fork</a></strong></p>
+<p>Fork - a fast and friendly git client for Mac</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install fork
+</code></pre></div><p><strong>Postman</strong></p>
+<p>The Collaboration Platform for API Development.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install postman
+</code></pre></div><p><strong><a href="http://www.sequelpro.com/">Sequel Pro</a></strong></p>
+<p>Sequel Pro is a fast, easy-to-use Mac database management application for working with MySQL databases.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install sequel-pro
+</code></pre></div><p><strong><a href="https://tableplus.com">TablePlus</a></strong></p>
+<p>Modern, Native Tool for Database Management.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install tableplus
+</code></pre></div><p><strong><a href="https://rdm.dev">Redis Desktop Manager</a></strong></p>
+<p>Redis GUI management tool for Windows, Mac OS X, Ubuntu and Debian.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install tableplus
+</code></pre></div><p><strong><a href="https://robomongo.org">Robo3T</a></strong></p>
+<p>Robo 3T. Free, open-source MongoDB GUI</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install tableplus
+</code></pre></div><h2 id="see-also">See Also</h2>
+<h3 id="遺珠">遺珠</h3>
+<p>以下是曾為個人熱愛, 但因故越來越少用的軟體. 暫列於此&hellip;</p>
+<ul>
+<li><a href="https://atom.io/">Atom</a><br>
+A hackable text editor for the 21st Century by github.</li>
+<li><a href="http://sourcetreeapp.com/">SourceTree</a><br>
+Free Mercurial and Git Client for Windows and Mac</li>
+<li><a href="https://www.gitkraken.com/">GitKraken</a><br>
+The downright luxurious Git client, for Windows, Mac &amp; Linux</li>
+<li><a href="https://hyperterm.org/">HyperTerm</a>
+JS/HTML/CSS Terminal</li>
+</ul>
+<h3 id="reference">Reference</h3>
+<p><strong>Zsh</strong></p>
+<ul>
+<li><a href="https://sspai.com/post/55176">让你的 Mac 提前用上 macOS Catalina 的 Shell——Oh My Zsh 配置指南 - 少数派</a></li>
+<li><a href="https://cyeninesky3.medium.com/bin-to-zsh-%E8%A8%AD%E5%AE%9A%E6%B5%81%E7%A8%8B-d29fe60a4121">bash to zsh 設定流程. 參考這篇一步一步執行，因為我已裝過 homebrew以及 iterm2… | by Youngmi huang | Medium</a></li>
+</ul>
+<p><strong>iTerm2 + Oh My Zsh</strong></p>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10192874">[Tool] Mac + iTerm 2 + Oh My Zsh + Powerlevel9k 設定 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+<li><a href="https://medium.com/statementdog-engineering/prettify-your-zsh-command-line-prompt-3ca2acc967f">超簡單！十分鐘打造漂亮又好用的 zsh command line 環境 | by Gary Chu | 財報狗技術部落格 | Medium</a></li>
+<li><a href="https://medium.com/@hazelwu/%E7%94%A8oh-my-zsh%E6%8A%8Aiterm%E8%AE%8A%E7%BE%8E%E7%BE%8E-8a18daa8eac">用Oh My Zsh把iTerm變美美. 使用終端機操作時常密密麻麻的，看一兩個小時還好，但如果長期這樣下去真的會眼殘，畫… | by Hazel Wu | Medium</a></li>
+<li><a href="https://medium.com/@h86991868/%E7%9C%8B%E8%86%A9%E4%BA%86%E4%B8%80%E6%88%90%E4%B8%8D%E8%AE%8A%E7%9A%84%E5%B0%8F%E9%BB%91%E7%AA%97-%E6%94%B9%E7%94%A8iterm2-oh-my-zsh%E5%90%A7-cc2b0683acb">看膩了一成不變的小黑窗？改用iterm2 + oh-my-zsh吧 | by Nathan Chou | Medium</a></li>
+</ul>
+<p><strong>WebStorm</strong></p>
+<ul>
+<li><a href="https://fpjs.fun/webstorm/general/setup/">WebStorm 安裝與設定 | 點燈坊</a></li>
+</ul>
+<p><strong>Mac Dev</strong></p>
+<ul>
+<li><a href="https://goo.gl/ZDYqar">How to set up your Mac for Web Development – freeCodeCamp.org</a></li>
+<li><a href="http://goo.gl/XOrSV6">homebrew - Mac OS X Yosemite 10.10 開発環境構築 - Qiita</a>
+<ul>
+<li><a href="http://goo.gl/8JkuvS">Python Development Environment on Mac OS X Mavericks 10.9 | Hacker Codex</a></li>
+<li><a href="http://goo.gl/5yhNGk">Set Up Python and Install Django on Mac OS X Lion 10.7 | Hacker Codex</a></li>
+</ul>
+</li>
+<li><a href="http://goo.gl/YkCvoT">Setting Up a Mac Dev Machine From Zero to Hero With Dotfiles - Tuts+ Code Tutorial</a></li>
+<li><a href="http://goo.gl/gSnCRv">MacOS 編輯器快捷建設定, short key of editor</a></li>
+<li><a href="https://goo.gl/YZfREq">2018 最新 MacBook 必裝程式與設定 – Ryan Hsu – Medium</a></li>
+</ul>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kywk.github.io/moco/tags/kywk/">kywk</a></span>
+        <span class="tag"><a href="https://kywk.github.io/moco/tags/macos/">macos</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kywk.github.io/moco/categories/macos/">macos</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        509 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-02-26 14:53
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        <style type="text/css">
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+ 
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+ 
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5;
+  border-color: #0077b5;
+}
+
+.resp-sharing-button--linkedin:hover,
+.resp-sharing-button--linkedin:active {
+  background-color: #046293;
+  border-color: #046293;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf;
+  border-color: #5f99cf;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+
+.resp-sharing-button--telegram {
+  background-color: #54A9EB;
+}
+
+.resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;}
+</style>
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm3.6 11.5h-2.1v7h-3v-7h-2v-2h2V8.34c0-1.1.35-2.82 2.65-2.82h2.35v2.3h-1.4c-.25 0-.6.13-.6.66V9.5h2.34l-.24 2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=moco&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm5.26 9.38v.34c0 3.48-2.64 7.5-7.48 7.5-1.48 0-2.87-.44-4.03-1.2 1.37.17 2.77-.2 3.9-1.08-1.16-.02-2.13-.78-2.46-1.83.38.1.8.07 1.17-.03-1.2-.24-2.1-1.3-2.1-2.58v-.05c.35.2.75.32 1.18.33-.7-.47-1.17-1.28-1.17-2.2 0-.47.13-.92.36-1.3C7.94 8.85 9.88 9.9 12.06 10c-.04-.2-.06-.4-.06-.6 0-1.46 1.18-2.63 2.63-2.63.76 0 1.44.3 1.92.82.6-.12 1.95-.27 1.95-.27-.35.53-.72 1.66-1.24 2.04z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F&amp;title=moco&amp;summary=moco&amp;source=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M9.5,16.5h-2v-7h2V16.5z M8.5,7.5 c-0.553,0-1-0.448-1-1c0-0.552,0.447-1,1-1s1,0.448,1,1C9.5,7.052,9.053,7.5,8.5,7.5z M18.5,16.5h-3V13c0-0.277-0.225-0.5-0.5-0.5 c-0.276,0-0.5,0.223-0.5,0.5v3.5h-3c0,0,0.031-6.478,0-7h3v0.835c0,0,0.457-0.753,1.707-0.753c1.55,0,2.293,1.12,2.293,3.296V16.5z" />
+    </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F&amp;resubmit=true&amp;title=moco" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="9.391" cy="13.392" r=".978"/><path d="M14.057 15.814c-1.14.66-2.987.655-4.122-.004-.238-.138-.545-.058-.684.182-.13.24-.05.545.19.685.72.417 1.63.646 2.568.646.93 0 1.84-.228 2.558-.642.24-.13.32-.44.185-.68-.14-.24-.445-.32-.683-.18zM5 12.086c0 .41.23.78.568.978.27-.662.735-1.264 1.353-1.774-.2-.207-.48-.334-.79-.334-.62 0-1.13.507-1.13 1.13z"/><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm6.673 14.055c.01.104.022.208.022.314 0 2.61-3.004 4.73-6.695 4.73s-6.695-2.126-6.695-4.74c0-.105.013-.21.022-.313C4.537 13.73 4 12.97 4 12.08c0-1.173.956-2.13 2.13-2.13.63 0 1.218.29 1.618.757 1.04-.607 2.345-.99 3.77-1.063.057-.803.308-2.33 1.388-2.95.633-.366 1.417-.323 2.322.085.302-.81 1.076-1.397 1.99-1.397 1.174 0 2.13.96 2.13 2.13 0 1.177-.956 2.133-2.13 2.133-1.065 0-1.942-.79-2.098-1.81-.734-.4-1.315-.506-1.716-.276-.6.346-.818 1.395-.88 2.087 1.407.08 2.697.46 3.728 1.065.4-.468.987-.756 1.617-.756 1.17 0 2.13.953 2.13 2.13 0 .89-.54 1.65-1.33 1.97z"/><circle cx="14.609" cy="13.391" r=".978"/><path d="M17.87 10.956c-.302 0-.583.128-.79.334.616.51 1.082 1.112 1.352 1.774.34-.197.568-.566.568-.978 0-.623-.507-1.13-1.13-1.13z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=moco&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 23.5c6.35 0 11.5-5.15 11.5-11.5S18.35.5 12 .5.5 5.65.5 12 5.65 23.5 12 23.5zM2.505 11.053c-.31.118-.505.738-.505.738s.203.62.513.737l3.636 1.355 1.417 4.557a.787.787 0 0 0 1.25.375l2.115-1.72a.29.29 0 0 1 .353-.01L15.1 19.85a.786.786 0 0 0 .746.095.786.786 0 0 0 .487-.573l2.793-13.426a.787.787 0 0 0-1.054-.893l-15.568 6z" fill-rule="evenodd"/></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://kywk.github.io/moco/posts/2021/03/subl_packages-2021-feb/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Sublime Text 3 Package List, 2021.Feb</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="https://kywk.github.io/moco/posts/2021/02/macos_setup-note-2021-feb/">
+                    <span class="button__text">macOS 系統安裝紀錄 2021.Feb</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kywk-moco" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://kywk.github.io/moco">Moo Cow</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span><span><a href="https://kywk.github.io/moco/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://kywk.github.io/moco/bundle.min.2ce64ea6ea44a72b13dd812fc2eb5cca3efe878cce258a47c137c17edf46e0602a05e422b618a5b80b5939c731b7a293351c2f2222a21f6ee27e54a8448dd20e.js" integrity="sha512-LOZOpupEpysT3YEvwutcyj7&#43;h4zOJYpHwTfBft9G4GAqBeQithiluAtZOccxt6KTNRwvIiKiH27iflSoRI3SDg=="></script>
+
+
+
+    </body>
+</html>

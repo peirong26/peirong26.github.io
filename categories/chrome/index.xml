@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chrome on moco</title>
+    <link>https://kywk.github.io/moco/categories/chrome/</link>
+    <description>Recent content in chrome on moco</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 09 Mar 2021 14:37:59 +0800</lastBuildDate><atom:link href="https://kywk.github.io/moco/categories/chrome/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chrome Extension List, 2021.Mar</title>
+      <link>https://kywk.github.io/moco/posts/2021/03/chrome_extension-2021-mar/</link>
+      <pubDate>Tue, 09 Mar 2021 14:37:59 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/posts/2021/03/chrome_extension-2021-mar/</guid>
+      <description>翻出紀錄, 上次整理 Chrome extension 已約三四年前了, 一開始紀錄 Chrome extension 是重灌電腦前整理列表, 方便重灌後使用. 但後來 Chrome 把 extension, bookmark&amp;hellip; 等個人同步在雲端上, 只需要登入個人帳號, 就可以還原之前的 extension, bookmark&amp;hellip; 等, 也就不再整理列表了.
+再次整理列表, 因為有些喜歡的 extension 已在 Chrome Store 下架, 無法還原. 尋找如何安裝該擴充時, 發現網路上有人把常用的擴充下載備份, 被下架時可以利用開發者模式安裝本地端擴充. 覺得是個不錯的方法.
+最近已經越來越感受到雲端除了方便外, 也帶來許多的不定因素. 別人分享的檔案, 上傳的影片, 發布的軟體, 都隨時可能被下架. 而本地之備份在法律上有模糊之地, 僅個人低調使用.
+這邊整理個人喜歡的擴充, 以及介紹連結. 也為了若 Chrome 在省電與記憶體管理上繼續積弱不振的話, 可能移師 Edge 作準備.
+Browser enhance Dream Afar New Tab (遠方) 「每天打開新分頁都是一段不期而遇的旅行」
+新分頁美化, 目前最愛的一個新分頁功能.
+曾用過一陣子強調 Tab 與 WorkSpace 管理的新分頁, 後來因工作流程取捨與簡化, 過於強調分頁管理反而會擾亂流程. 故回頭使用這個以美觀優先的新分頁.
+目前這個擴充已在 Chrome Store 下架, 需自行尋找 crx 安裝.</description>
+    </item>
+    
+  </channel>
+</rss>

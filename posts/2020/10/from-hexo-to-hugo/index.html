@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Moo Cow ">
+<meta name="description" content="本文以 Hugo v0.76.2 編寫介紹, 其他版本若步驟或訊息內容不符, 請以官方文件為準
+從 Hexo 到 Hugo 沒想過會再次開始寫 Blog, 多事的 2020 太多意外, 覺得需要即時一一進行想做的事.
+於是重新開始了 Blog, 把想做的事完成, 紀錄, 然後放水流, 繼續&amp;hellip;
+雖一直使用 Hexo, 但脫節的這些年 Hexo 改了不少. 繼續沿用 Hexo 還是換個平台重新來過, 評估了許久.
+之前使用自行修改過後的 Hexi, 和 Hexo 已越來越不相容, 偶爾升版都需解決衝突.
+用 從 Hexo 到 Hugo 餵狗, 多數人棄坑 Hexo 原因多為效能落差大, 及轉移無痛.
+這些文章中, 個人心路歷程則和 从 Hexo 到 Hugo - ouuan的博客 較為接近.
+自己工作上的開發也漸漸從 node.js 轉移到 go lang, 部落格平台轉移似乎天注定.
+建制環境 官方有提供如何安裝及設定 Hugo 的說明文件, 網路上也找得到中文版文件.
+使用Hugo&#43;Github Pages建置Blog 這篇寫得挺詳細, 部分內容架構會參考該文, 再以自己的歷程增減補充." />
+<meta name="keywords" content="blog,developer, hugo, tutorial" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://kywk.github.io/moco/posts/2020/10/from-hexo-to-hugo/" />
+
+
+    <title>
+        
+            從 Hexo 到 Hugo :: moco  — Backend Engineer in node.js and Go
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://kywk.github.io/moco/main.9e9f1cb5a3cb411dd947abeb00050cc01a83681292b515813ef6fa4568889805.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kywk.github.io/moco/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://kywk.github.io/moco/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://kywk.github.io/moco/favicon-16x16.png">
+    <link rel="manifest" href="https://kywk.github.io/moco/site.webmanifest">
+    <link rel="mask-icon" href="https://kywk.github.io/moco/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://kywk.github.io/moco/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="從 Hexo 到 Hugo">
+<meta itemprop="description" content="本文以 Hugo v0.76.2 編寫介紹, 其他版本若步驟或訊息內容不符, 請以官方文件為準
+從 Hexo 到 Hugo 沒想過會再次開始寫 Blog, 多事的 2020 太多意外, 覺得需要即時一一進行想做的事.
+於是重新開始了 Blog, 把想做的事完成, 紀錄, 然後放水流, 繼續&hellip;
+雖一直使用 Hexo, 但脫節的這些年 Hexo 改了不少. 繼續沿用 Hexo 還是換個平台重新來過, 評估了許久.
+之前使用自行修改過後的 Hexi, 和 Hexo 已越來越不相容, 偶爾升版都需解決衝突.
+用 從 Hexo 到 Hugo 餵狗, 多數人棄坑 Hexo 原因多為效能落差大, 及轉移無痛.
+這些文章中, 個人心路歷程則和 从 Hexo 到 Hugo - ouuan的博客 較為接近.
+自己工作上的開發也漸漸從 node.js 轉移到 go lang, 部落格平台轉移似乎天注定.
+建制環境 官方有提供如何安裝及設定 Hugo 的說明文件, 網路上也找得到中文版文件.
+使用Hugo&#43;Github Pages建置Blog 這篇寫得挺詳細, 部分內容架構會參考該文, 再以自己的歷程增減補充."><meta itemprop="datePublished" content="2020-10-14T15:08:05&#43;08:00" />
+<meta itemprop="dateModified" content="2020-10-14T15:08:05&#43;08:00" />
+<meta itemprop="wordCount" content="652"><meta itemprop="image" content="https://kywk.github.io/moco"/>
+<meta itemprop="keywords" content="hugo,tutorial," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://kywk.github.io/moco"/>
+
+<meta name="twitter:title" content="從 Hexo 到 Hugo"/>
+<meta name="twitter:description" content="本文以 Hugo v0.76.2 編寫介紹, 其他版本若步驟或訊息內容不符, 請以官方文件為準
+從 Hexo 到 Hugo 沒想過會再次開始寫 Blog, 多事的 2020 太多意外, 覺得需要即時一一進行想做的事.
+於是重新開始了 Blog, 把想做的事完成, 紀錄, 然後放水流, 繼續&hellip;
+雖一直使用 Hexo, 但脫節的這些年 Hexo 改了不少. 繼續沿用 Hexo 還是換個平台重新來過, 評估了許久.
+之前使用自行修改過後的 Hexi, 和 Hexo 已越來越不相容, 偶爾升版都需解決衝突.
+用 從 Hexo 到 Hugo 餵狗, 多數人棄坑 Hexo 原因多為效能落差大, 及轉移無痛.
+這些文章中, 個人心路歷程則和 从 Hexo 到 Hugo - ouuan的博客 較為接近.
+自己工作上的開發也漸漸從 node.js 轉移到 go lang, 部落格平台轉移似乎天注定.
+建制環境 官方有提供如何安裝及設定 Hugo 的說明文件, 網路上也找得到中文版文件.
+使用Hugo&#43;Github Pages建置Blog 這篇寫得挺詳細, 部分內容架構會參考該文, 再以自己的歷程增減補充."/>
+
+
+
+
+    <meta property="og:title" content="從 Hexo 到 Hugo" />
+<meta property="og:description" content="本文以 Hugo v0.76.2 編寫介紹, 其他版本若步驟或訊息內容不符, 請以官方文件為準
+從 Hexo 到 Hugo 沒想過會再次開始寫 Blog, 多事的 2020 太多意外, 覺得需要即時一一進行想做的事.
+於是重新開始了 Blog, 把想做的事完成, 紀錄, 然後放水流, 繼續&hellip;
+雖一直使用 Hexo, 但脫節的這些年 Hexo 改了不少. 繼續沿用 Hexo 還是換個平台重新來過, 評估了許久.
+之前使用自行修改過後的 Hexi, 和 Hexo 已越來越不相容, 偶爾升版都需解決衝突.
+用 從 Hexo 到 Hugo 餵狗, 多數人棄坑 Hexo 原因多為效能落差大, 及轉移無痛.
+這些文章中, 個人心路歷程則和 从 Hexo 到 Hugo - ouuan的博客 較為接近.
+自己工作上的開發也漸漸從 node.js 轉移到 go lang, 部落格平台轉移似乎天注定.
+建制環境 官方有提供如何安裝及設定 Hugo 的說明文件, 網路上也找得到中文版文件.
+使用Hugo&#43;Github Pages建置Blog 這篇寫得挺詳細, 部分內容架構會參考該文, 再以自己的歷程增減補充." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kywk.github.io/moco/posts/2020/10/from-hexo-to-hugo/" /><meta property="og:image" content="https://kywk.github.io/moco"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-10-14T15:08:05&#43;08:00" />
+<meta property="article:modified_time" content="2020-10-14T15:08:05&#43;08:00" />
+
+
+
+
+
+    <meta property="article:section" content="hugo" />
+
+
+
+    <meta property="article:published_time" content="2020-10-14 15:08:05 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://kywk.github.io/moco/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/kywk</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://kywk.github.io/moco/about/">About</a></li><li><a href="https://kywk.github.io/moco/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://kywk.github.io/moco/posts/2020/10/from-hexo-to-hugo/">從 Hexo 到 Hugo</a>
+      </h1>
+
+      
+
+      
+
+      <div class="post-content">
+        <p><em>本文以 Hugo v0.76.2 編寫介紹, 其他版本若步驟或訊息內容不符, 請以官方文件為準</em></p>
+<h2 id="從-hexo-到-hugo">從 Hexo 到 Hugo</h2>
+<p>沒想過會再次開始寫 Blog, 多事的 2020 太多意外, 覺得需要即時一一進行想做的事.<br>
+於是重新開始了 Blog, 把想做的事完成, 紀錄, 然後放水流, 繼續&hellip;</p>
+<p>雖一直使用 Hexo, 但脫節的這些年 Hexo 改了不少.
+繼續沿用 Hexo 還是換個平台重新來過, 評估了許久.<br>
+之前使用自行修改過後的 Hexi, 和 Hexo 已越來越不相容, 偶爾升版都需解決衝突.</p>
+<p>用 <a href="https://www.google.com/search?sxsrf=ALeKk032kFJ5VuvMawA5Inq9zUmrYJtn3Q%3A1602060011667&amp;ei=6359X8GUKOSbmAWh8oewDQ&amp;q=%E5%BE%9E+hexo+%E5%88%B0%C2%A0hugo&amp;oq=%E5%BE%9E+hexo+%E5%88%B0%C2%A0hugo&amp;gs_lcp=CgZwc3ktYWIQAzoECCMQJzoHCCMQsAIQJzoFCCEQoAFQi3hYnrcBYIu5AWgEcAB4AYABhAGIAbkMkgEEMjIuMpgBAKABAaoBB2d3cy13aXrAAQE&amp;sclient=psy-ab&amp;ved=0ahUKEwiBtp3PiqLsAhXkDaYKHSH5AdYQ4dUDCA0&amp;uact=5">從 Hexo 到 Hugo</a> 餵狗,
+多數人棄坑 Hexo 原因多為效能落差大, 及轉移無痛.<br>
+這些文章中, 個人心路歷程則和 <a href="https://ouuan.github.io/post/from-hexo-to-hugo/">从 Hexo 到 Hugo - ouuan的博客</a> 較為接近.<br>
+自己工作上的開發也漸漸從 node.js 轉移到 go lang, 部落格平台轉移似乎天注定.</p>
+<h2 id="建制環境">建制環境</h2>
+<p>官方有提供如何安裝及設定 Hugo 的<a href="https://gohugo.io/getting-started/installing/">說明文件</a>,
+網路上也找得到<a href="https://www.gohugo.org/doc/overview/installing/">中文版文件</a>.<br>
+<a href="https://carrie-lai.github.io/post/createhugoblog/">使用Hugo+Github Pages建置Blog</a> 這篇寫得挺詳細,
+部分內容架構會參考該文, 再以自己的歷程增減補充.</p>
+<h3 id="安裝-hugo">安裝 Hugo</h3>
+<p>對於 Mac 開發者來說, <a href="https://brew.sh/">Homebrew</a> 該是再熟悉不過的工具.
+Hugo 有提供 brew 套件, 相當方便的安裝方式.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install hugo
+</code></pre></div><p>安裝完後可透過 <code>hugo version</code> 確認版本, 若安裝失敗應該會出現 <code>command not found</code> 的錯誤訊息.
+若可顯示 Hugo 版本資訊則安裝成功</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew version
+Hugo Static Site Generator v0.76.2/extended darwin/amd64 BuildDate: unknown
+</code></pre></div><p>若透過 brew 安裝的版本不是想要的版本, 也可以自行下載特定版本手動安裝.<br>
+梅干有教學: <a href="https://www.minwt.com/webdesign-dev/html/21603.html">MAC平台環境中，下載所需的Hugo版本與手動安裝 | 梅問題．教學網</a></p>
+<h3 id="初始化-blog">初始化 Blog</h3>
+<p>找個地方當作是存放 Blog 的資料夾, 下指令 <code>hugo new site 目標資料夾路徑</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo new site test
+Congratulations! Your new Hugo site is created in /Users/kywk/Downloads/test.
+
+Just a few more steps and you<span style="color:#960050;background-color:#1e0010">&#39;</span>re ready to go:
+
+1. Download a theme into the same-named folder.
+   Choose a theme from https://themes.gohugo.io/ or
+   create your own with the <span style="color:#e6db74">&#34;hugo new theme &lt;THEMENAME&gt;&#34;</span> command.
+2. Perhaps you want to add some content. You can add single files
+   with <span style="color:#e6db74">&#34;hugo new &lt;SECTIONNAME&gt;/&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;</span>.
+3. Start the built-in live server via <span style="color:#e6db74">&#34;hugo server&#34;</span>.
+
+Visit https://gohugo.io/ <span style="color:#66d9ef">for</span> quickstart guide and full documentation.
+</code></pre></div><p>成功的話會看到上述訊息 (依版本不同訊息內容或許不同)<br>
+在 Blog 資料夾也會看到預設得資料結構</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd test/
+$ ls
+archetypes  config.toml content     data        layouts     static      themes
+</code></pre></div><h3 id="選用-theme">選用 theme</h3>
+<p>主題可以到 <a href="https://themes.gohugo.io/">Hugo Themes</a> 去找自己喜歡的來用, 都有預覽可以看.</p>
+<p>官方教學 <a href="https://gohugo.io/getting-started/quick-start/">Quick Start | Hugo</a> 是建議使用 git submodule 來安裝與追蹤主題更新,
+不過我並沒有打算為部落格建立 git 版控, 所以直接把喜歡的主題 clone 到 themes 資料夾底下.</p>
+<p>這個部落格用的是 <a href="https://themes.gohugo.io/hugo-coder/">coder</a>, 指令如下:</p>
+<pre><code>$ cd themes
+$ git clone https://github.com/luizdepra/hugo-coder.git
+</code></pre><p>不同主題會有不同主題的配置內容, 主題的說明文件上應該都會說明設定方式, 詳閱並耐心修改.
+大部分 Hugo 主題都會有 <code>exampleSite</code> 資料夾, 是個參考修改的入口.</p>
+<h2 id="搬移-hexo-文件">搬移 hexo 文件</h2>
+<p>以下說明 Hexo 和 Hugo 設計思維不同之處, 並簡單介紹搬移 Hexo 到 Hugo 注意事項.</p>
+<h3 id="檔案資料夾">檔案資料夾</h3>
+<p>Hugo 文章則放在 <code>content</code> 資料夾, 直接把 Hexo 站台 <code>source/_post</code> 的檔案直接複製到 Hugo 的 <code>content</code> 即可.</p>
+<p>自己目前是使用 <a href="https://obsidian.md/">Obsidian</a> 作為筆記管理系統, 部落格文章也都存放在 Obsidian 資料倉儲內.
+所幸 UNIXlike 檔案系統的支援, 可以直接建立 Symbolic link, 把 Obsidian 資料夾下的部落格文章 link 到 Hugo 站台.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd hugo-site/content
+$ ln -sfF ~/Documents/Obsidian/blog blog
+</code></pre></div><p>這樣一來, 我可以使用 Obsidian 來管理部落格文章, 並使用 Hugo 來發佈部落格.</p>
+<h3 id="草稿">草稿</h3>
+<p>hexo 把放在 <code>source/_draft</code> 的文章視為草稿, 發佈時不會產生該資料夾下的文章.<br>
+hugo 則是以文章 Front Matter 中的 <code>draft</code> 屬性判斷該篇文章是否為草稿, 預設為非草稿.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+title: &#34;從 hexo 到 hugo&#34;
+date: 2020-10-06T15:08:05+08:00
+draft: true
+...
+---
+</code></pre></div><p>兩者設計各有優缺, 個人喜歡 hugo 的方式,
+文章編輯完直接改設定再發佈即可, 不需要搬移檔案, 操作比較直觀.</p>
+<h3 id="front-matter">Front Matter</h3>
+<p>hexo 對 Front Matter 寬容度較高, 不一定要包在兩個 <code>---</code> 之間, 甚至可以不需要 <code>---</code>.<br>
+而 hugo 的 Front Matter 則必須包含在 <code>---</code> 之間, 否則會出錯.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+title: &#34;從 hexo 到 hugo&#34;
+date: 2020-10-06T15:08:05+08:00
+categories: [&#34;hugo&#34;]
+tags: [&#34;hugo&#34;, &#34;tutorial&#34;]
+---
+</code></pre></div><p>這部份需一一確認文章修改, 或是自行透過熟悉的工具批次比對後修正.</p>
+<h3 id="tag--shortcodes">Tag &amp; shortcodes</h3>
+<p>使用 Markdown 寫文章好處是相容性較高, 使用常見格式在文章主體幾乎都可以不需修改, 直接產生.
+但各個 Blog 系統還是有各自的擴充格式, 這部份可能必須手動一一確認修正.
+或參考 <a href="https://gohugo.io/tools/migrations/">官方 Migrate to Hugo</a> 裡面一些轉換工具的介紹.</p>
+<p>Hexo Tag plugin 擴充指令對應到的是 Hugo shortcodes, 都是可以透過簡單指令來插入複雜格式的方法.
+格式上 Hexo 的擴充 Tag 格式和 Jekyll 一樣, 格式為 <code>{% tag_name %}</code>,
+而 Hugo shortcodes 格式則為 <code>{ {&lt; shortcode_name &gt;} }</code></p>
+<p>格式轉換上可使用 <a href="https://github.com/coderzh/ConvertToHugo">ConvertToHugo</a> 來轉換,
+若有 Hugo 或選用的主題所沒有的 shortcode, 只能自己手動處理.
+官網有 <a href="https://gohugo.io/content-management/shortcodes/">Shortcodes</a> 的完整介紹與編寫範例.
+一些常用的 shortcode 也容易在網路上找到範例.
+把自行編寫或網路下載的 shortcodes 放在 <code>layouts/shortcodes</code> 即可.</p>
+<p><a href="https://github.com/kywk/hugo-shortcodes">kywk/hugo-shortcodes</a> 這專案是個人使用的 shortcodes, 會陸續把 Hexo 內建的 Tag 都移植到 Hugo shortcodes.</p>
+<h2 id="預覽">預覽</h2>
+<ul>
+<li>
+<p>本地預覽</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo server
+</code></pre></div><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eU2qvxANnWdmA058HjT6_iu-EPvodcn2aG2wPm64F72SZl7-Z41ZbcZkzKmshLIsettRm0GImbyIvRNeOQlXqYX5T38DUHinH1fEZI8MVSoZ3A3Om7o-cWvlxJOzZkA0nD1TjaCYmgaWdi-S1b0ftLOw=w559-h307-no?authuser=0" alt=""></p>
+<p>會產生靜態頁面並產生預覽內容, 可以在瀏覽器經由 http://localhost:1313/ 查看,
+且支援熱部署 (livereload), 修改文章或是 CSS 之類的東西時是不用重啟的.</p>
+<p>若檢視部落格內容無誤, 即可產生靜態頁面.</p>
+</li>
+<li>
+<p>產生靜態頁面: 在根目錄下指令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo
+</code></pre></div><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3f6yJMe20dD8OCd3i7lPL30DC16KZ0xS49mlXtMUIZ-BKqlE7gQFBClXb1RT2l9Rptcb_6QjzztyFsC8tqb5oscP8bFTs0WYhqL2cmOTlSeENKW0RnhOfCdst2TuAZUHA6xLkxbj9qEyuLX88vM-hVnUg=w219-h209-no?authuser=0" alt=""></p>
+<p>所生成的部落格靜態頁面放在 <code>public</code> 資料夾下, 可以直接上傳發佈.</p>
+</li>
+</ul>
+<h2 id="發佈到-githubio">發佈到 github.io</h2>
+<p>Hugo 沒有像 Hexo 內建 deploy 的指令, 需自行把檔案上傳網站空間.</p>
+<p>我使用 <a href="https://pages.github.com/">GitHub Pages</a> 來放置個人網站.<br>
+以下說明假設對 git/GitHub 已有一定程度熟悉, 關於 git 如何安裝, 相關指令細節不介紹.</p>
+<h3 id="建立-githubio-repository">建立 github.io repository</h3>
+<p>GitHub Pages 可以建立個人網站或專案網站,
+基本設置發布流程皆相同, 差別在於 respository 名稱和預設 branch 不同.
+詳盡的說明與步驟在 <a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site">Creating a GitHub Pages site - GitHub Docs</a></p>
+<p><strong>個人網站</strong></p>
+<p>個人網站的網址為 <code>https://username.github.io</code>.</p>
+<p>大部分相關 Hugo 教學文章都是使用個人網站來介紹, 文章資源相當多.
+設定步驟亦相當簡單, 在 GitHub 上新建一個 <code>username.github.io</code> 的專案,
+將該專案 clone 到 Hugo 站台資料夾內, 並改名為 public 即可.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd $hugo
+$ git clone https://github.com/username/username.github.io public
+</code></pre></div><p><strong>專案網站</strong></p>
+<p>GitHub 允許使用者為每個專案建置該專案網站, 網址為 <code>https://username.github.io/project</code>.</p>
+<p>GitHub Pages 專案網站預設是使用專案倉儲中的 <code>gh-pages</code> 分支.
+直接在既有的的專案中, 新增 <code>gh-pages</code> branch 即可.</p>
+<p>若想使用其他分支當作網站資料, 可到 GitHub 上去指定 GitHub Pages 所要使用的 branch 名稱和資料夾.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eDlmDBVj0CEUuHX1_JPkrxo1Tf_b6UDrFPEu1yWPA6HBhd86DqdS0D8h9aT44Hlgl2C6lztM0ngPo2OihyWatPbNFw-qT7wHyR4NEMDSPN9v6Hktt8va0YeQmvA-kJiMTB3XQ9E-dvTZu_awgnQX-cFg=w589-h277-no?authuser=0" alt=""></p>
+<h3 id="發布-script">發布 script</h3>
+<p>Hugo 生成的靜態網站文件存放在 <code>public</code> 資料夾,
+把該資料夾內所有檔案加入 git, 並 push 到 GitHub 就完成發佈了.</p>
+<p>寫了簡單的 script 來完成上述發佈動作.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo
+cd public
+git add .
+git commit -m <span style="color:#e6db74">&#34;Updated: `date +&#39;%Y-%m-%d %H:%M:%S&#39;`&#34;</span>
+git push -f
+cd ..
+</code></pre></div><h2 id="後記">後記</h2>
+<p>除了使用 Hugo 重新開始部落格外, 預計完成兩個 Hugo 主題開發: <strong>fuday</strong> 及 <strong>rholi</strong>.<br>
+及, 可能的話, 寫個 hexo2hugo 或 hexo2netlify 的主題轉換產生器.</p>
+<p>開發歷程筆記和紀錄會整理更新在本部落格, 完成的發表亦然.<br>
+回到寫 blog 的生活, 有種充實感, 比較有目標完成某件事.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kywk.github.io/moco/tags/hugo/">hugo</a></span>
+        <span class="tag"><a href="https://kywk.github.io/moco/tags/tutorial/">tutorial</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kywk.github.io/moco/categories/hugo/">hugo</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        652 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2020-10-14 15:08
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        <style type="text/css">
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+ 
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+ 
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5;
+  border-color: #0077b5;
+}
+
+.resp-sharing-button--linkedin:hover,
+.resp-sharing-button--linkedin:active {
+  background-color: #046293;
+  border-color: #046293;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf;
+  border-color: #5f99cf;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+
+.resp-sharing-button--telegram {
+  background-color: #54A9EB;
+}
+
+.resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;}
+</style>
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm3.6 11.5h-2.1v7h-3v-7h-2v-2h2V8.34c0-1.1.35-2.82 2.65-2.82h2.35v2.3h-1.4c-.25 0-.6.13-.6.66V9.5h2.34l-.24 2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=moco&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm5.26 9.38v.34c0 3.48-2.64 7.5-7.48 7.5-1.48 0-2.87-.44-4.03-1.2 1.37.17 2.77-.2 3.9-1.08-1.16-.02-2.13-.78-2.46-1.83.38.1.8.07 1.17-.03-1.2-.24-2.1-1.3-2.1-2.58v-.05c.35.2.75.32 1.18.33-.7-.47-1.17-1.28-1.17-2.2 0-.47.13-.92.36-1.3C7.94 8.85 9.88 9.9 12.06 10c-.04-.2-.06-.4-.06-.6 0-1.46 1.18-2.63 2.63-2.63.76 0 1.44.3 1.92.82.6-.12 1.95-.27 1.95-.27-.35.53-.72 1.66-1.24 2.04z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F&amp;title=moco&amp;summary=moco&amp;source=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M9.5,16.5h-2v-7h2V16.5z M8.5,7.5 c-0.553,0-1-0.448-1-1c0-0.552,0.447-1,1-1s1,0.448,1,1C9.5,7.052,9.053,7.5,8.5,7.5z M18.5,16.5h-3V13c0-0.277-0.225-0.5-0.5-0.5 c-0.276,0-0.5,0.223-0.5,0.5v3.5h-3c0,0,0.031-6.478,0-7h3v0.835c0,0,0.457-0.753,1.707-0.753c1.55,0,2.293,1.12,2.293,3.296V16.5z" />
+    </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F&amp;resubmit=true&amp;title=moco" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="9.391" cy="13.392" r=".978"/><path d="M14.057 15.814c-1.14.66-2.987.655-4.122-.004-.238-.138-.545-.058-.684.182-.13.24-.05.545.19.685.72.417 1.63.646 2.568.646.93 0 1.84-.228 2.558-.642.24-.13.32-.44.185-.68-.14-.24-.445-.32-.683-.18zM5 12.086c0 .41.23.78.568.978.27-.662.735-1.264 1.353-1.774-.2-.207-.48-.334-.79-.334-.62 0-1.13.507-1.13 1.13z"/><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm6.673 14.055c.01.104.022.208.022.314 0 2.61-3.004 4.73-6.695 4.73s-6.695-2.126-6.695-4.74c0-.105.013-.21.022-.313C4.537 13.73 4 12.97 4 12.08c0-1.173.956-2.13 2.13-2.13.63 0 1.218.29 1.618.757 1.04-.607 2.345-.99 3.77-1.063.057-.803.308-2.33 1.388-2.95.633-.366 1.417-.323 2.322.085.302-.81 1.076-1.397 1.99-1.397 1.174 0 2.13.96 2.13 2.13 0 1.177-.956 2.133-2.13 2.133-1.065 0-1.942-.79-2.098-1.81-.734-.4-1.315-.506-1.716-.276-.6.346-.818 1.395-.88 2.087 1.407.08 2.697.46 3.728 1.065.4-.468.987-.756 1.617-.756 1.17 0 2.13.953 2.13 2.13 0 .89-.54 1.65-1.33 1.97z"/><circle cx="14.609" cy="13.391" r=".978"/><path d="M17.87 10.956c-.302 0-.583.128-.79.334.616.51 1.082 1.112 1.352 1.774.34-.197.568-.566.568-.978 0-.623-.507-1.13-1.13-1.13z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=moco&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 23.5c6.35 0 11.5-5.15 11.5-11.5S18.35.5 12 .5.5 5.65.5 12 5.65 23.5 12 23.5zM2.505 11.053c-.31.118-.505.738-.505.738s.203.62.513.737l3.636 1.355 1.417 4.557a.787.787 0 0 0 1.25.375l2.115-1.72a.29.29 0 0 1 .353-.01L15.1 19.85a.786.786 0 0 0 .746.095.786.786 0 0 0 .487-.573l2.793-13.426a.787.787 0 0 0-1.054-.893l-15.568 6z" fill-rule="evenodd"/></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://kywk.github.io/moco/posts/2020/10/porting-hexo-tags/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Porting Hexo tags to Hugo shortcode</span>
+                </a>
+            </span>
+            
+
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kywk-moco" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://kywk.github.io/moco">Moo Cow</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span><span><a href="https://kywk.github.io/moco/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://kywk.github.io/moco/bundle.min.2ce64ea6ea44a72b13dd812fc2eb5cca3efe878cce258a47c137c17edf46e0602a05e422b618a5b80b5939c731b7a293351c2f2222a21f6ee27e54a8448dd20e.js" integrity="sha512-LOZOpupEpysT3YEvwutcyj7&#43;h4zOJYpHwTfBft9G4GAqBeQithiluAtZOccxt6KTNRwvIiKiH27iflSoRI3SDg=="></script>
+
+
+
+    </body>
+</html>

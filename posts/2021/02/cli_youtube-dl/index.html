@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Moo Cow ">
+<meta name="description" content="一直都是利用播放清單和 Like 來當作 Youtube 影片的書籤. 不過陸續發現有些影片會無預期被刪除或改為私人影片, 也有些頻道會莫名消失.
+單純音樂類的播放清單就算了, 但有些專業參考性質的影片需要時找不到, 故發起把影片下載保存的念頭,
+網路上有不少下載 Youtube 影片的線上網站和 App, 試用過後最後回到最適合工程師的 youtube-dl
+youtube-dl youtube-dl 是個 OpenSource 專案, 有興趣研究的可在 GitHub 上 Fork 專案.
+日前曾因可能違反 DMCA 而導致 GitHub 上所有 youtube-dl 專案都被下架. (是的, 不單 youtube 影片可能下架, 連下載工具都可能被下架) 所幸後來在眾多熱心法律專業人士協助下, 確認並不違反 DMCA 而恢復專案. 完整故事可到官方 blog 查看.
+install Mac 上透過 brew 安裝 youtube-dl 相當簡單.
+$ brew install youtube-dl ffmpeg youtube-dl 是 python script, 利用 python 適合寫爬蟲的特性, 解析 youtube 影片位置並下載. 目前 youtube 網站中高畫質格式多為 video-only 或 audio-only 的 webm 格式, 傳統 mp4 格式大多只到 720p." />
+<meta name="keywords" content="blog,developer, youtube, cli" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://kywk.github.io/moco/posts/2021/02/cli_youtube-dl/" />
+
+
+    <title>
+        
+            利用 youtube-dl 下載 Youtube 影片 :: moco  — Backend Engineer in node.js and Go
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://kywk.github.io/moco/main.9e9f1cb5a3cb411dd947abeb00050cc01a83681292b515813ef6fa4568889805.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kywk.github.io/moco/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://kywk.github.io/moco/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://kywk.github.io/moco/favicon-16x16.png">
+    <link rel="manifest" href="https://kywk.github.io/moco/site.webmanifest">
+    <link rel="mask-icon" href="https://kywk.github.io/moco/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://kywk.github.io/moco/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="利用 youtube-dl 下載 Youtube 影片">
+<meta itemprop="description" content="一直都是利用播放清單和 Like 來當作 Youtube 影片的書籤. 不過陸續發現有些影片會無預期被刪除或改為私人影片, 也有些頻道會莫名消失.
+單純音樂類的播放清單就算了, 但有些專業參考性質的影片需要時找不到, 故發起把影片下載保存的念頭,
+網路上有不少下載 Youtube 影片的線上網站和 App, 試用過後最後回到最適合工程師的 youtube-dl
+youtube-dl youtube-dl 是個 OpenSource 專案, 有興趣研究的可在 GitHub 上 Fork 專案.
+日前曾因可能違反 DMCA 而導致 GitHub 上所有 youtube-dl 專案都被下架. (是的, 不單 youtube 影片可能下架, 連下載工具都可能被下架) 所幸後來在眾多熱心法律專業人士協助下, 確認並不違反 DMCA 而恢復專案. 完整故事可到官方 blog 查看.
+install Mac 上透過 brew 安裝 youtube-dl 相當簡單.
+$ brew install youtube-dl ffmpeg youtube-dl 是 python script, 利用 python 適合寫爬蟲的特性, 解析 youtube 影片位置並下載. 目前 youtube 網站中高畫質格式多為 video-only 或 audio-only 的 webm 格式, 傳統 mp4 格式大多只到 720p.">
+<meta itemprop="datePublished" content="2021-02-07T11:46:48+08:00" />
+<meta itemprop="dateModified" content="2021-02-07T11:46:48+08:00" />
+<meta itemprop="wordCount" content="725">
+<meta itemprop="image" content="https://kywk.github.io/moco"/>
+
+
+
+<meta itemprop="keywords" content="youtube,cli," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://kywk.github.io/moco"/>
+
+<meta name="twitter:title" content="利用 youtube-dl 下載 Youtube 影片"/>
+<meta name="twitter:description" content="一直都是利用播放清單和 Like 來當作 Youtube 影片的書籤. 不過陸續發現有些影片會無預期被刪除或改為私人影片, 也有些頻道會莫名消失.
+單純音樂類的播放清單就算了, 但有些專業參考性質的影片需要時找不到, 故發起把影片下載保存的念頭,
+網路上有不少下載 Youtube 影片的線上網站和 App, 試用過後最後回到最適合工程師的 youtube-dl
+youtube-dl youtube-dl 是個 OpenSource 專案, 有興趣研究的可在 GitHub 上 Fork 專案.
+日前曾因可能違反 DMCA 而導致 GitHub 上所有 youtube-dl 專案都被下架. (是的, 不單 youtube 影片可能下架, 連下載工具都可能被下架) 所幸後來在眾多熱心法律專業人士協助下, 確認並不違反 DMCA 而恢復專案. 完整故事可到官方 blog 查看.
+install Mac 上透過 brew 安裝 youtube-dl 相當簡單.
+$ brew install youtube-dl ffmpeg youtube-dl 是 python script, 利用 python 適合寫爬蟲的特性, 解析 youtube 影片位置並下載. 目前 youtube 網站中高畫質格式多為 video-only 或 audio-only 的 webm 格式, 傳統 mp4 格式大多只到 720p."/>
+
+
+
+
+    <meta property="og:title" content="利用 youtube-dl 下載 Youtube 影片" />
+<meta property="og:description" content="一直都是利用播放清單和 Like 來當作 Youtube 影片的書籤. 不過陸續發現有些影片會無預期被刪除或改為私人影片, 也有些頻道會莫名消失.
+單純音樂類的播放清單就算了, 但有些專業參考性質的影片需要時找不到, 故發起把影片下載保存的念頭,
+網路上有不少下載 Youtube 影片的線上網站和 App, 試用過後最後回到最適合工程師的 youtube-dl
+youtube-dl youtube-dl 是個 OpenSource 專案, 有興趣研究的可在 GitHub 上 Fork 專案.
+日前曾因可能違反 DMCA 而導致 GitHub 上所有 youtube-dl 專案都被下架. (是的, 不單 youtube 影片可能下架, 連下載工具都可能被下架) 所幸後來在眾多熱心法律專業人士協助下, 確認並不違反 DMCA 而恢復專案. 完整故事可到官方 blog 查看.
+install Mac 上透過 brew 安裝 youtube-dl 相當簡單.
+$ brew install youtube-dl ffmpeg youtube-dl 是 python script, 利用 python 適合寫爬蟲的特性, 解析 youtube 影片位置並下載. 目前 youtube 網站中高畫質格式多為 video-only 或 audio-only 的 webm 格式, 傳統 mp4 格式大多只到 720p." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kywk.github.io/moco/posts/2021/02/cli_youtube-dl/" />
+<meta property="og:image" content="https://kywk.github.io/moco"/>
+<meta property="article:published_time" content="2021-02-07T11:46:48+08:00" />
+<meta property="article:modified_time" content="2021-02-07T11:46:48+08:00" />
+
+
+
+
+    <meta property="article:section" content="cli" />
+
+
+
+    <meta property="article:published_time" content="2021-02-07 11:46:48 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://kywk.github.io/moco/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/kywk</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://kywk.github.io/moco/about/">About</a></li><li><a href="https://kywk.github.io/moco/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://kywk.github.io/moco/posts/2021/02/cli_youtube-dl/">利用 youtube-dl 下載 Youtube 影片</a>
+      </h1>
+
+      
+
+      
+
+      <div class="post-content">
+        <p>一直都是利用播放清單和 Like 來當作 Youtube 影片的書籤.
+不過陸續發現有些影片會無預期被刪除或改為私人影片, 也有些頻道會莫名消失.</p>
+<p>單純音樂類的播放清單就算了, 但有些專業參考性質的影片需要時找不到,
+故發起把影片下載保存的念頭,</p>
+<p>網路上有不少下載 Youtube 影片的線上網站和 App,
+試用過後最後回到最適合工程師的 <a href="https://youtube-dl.org/">youtube-dl</a></p>
+<h2 id="youtube-dl">youtube-dl</h2>
+<p><a href="https://youtube-dl.org/">youtube-dl</a> 是個 OpenSource 專案,
+有興趣研究的可在 <a href="https://github.com/ytdl-org/youtube-dl/">GitHub</a> 上 Fork 專案.</p>
+<p>日前曾因可能違反 DMCA 而導致 GitHub 上所有 youtube-dl 專案都被下架.
+(是的, 不單 youtube 影片可能下架, 連下載工具都可能被下架)
+所幸後來在眾多熱心法律專業人士協助下, 確認並不違反 DMCA 而恢復專案.
+<a href="https://github.blog/2020-11-16-standing-up-for-developers-youtube-dl-is-back/">完整故事可到官方 blog 查看</a>.</p>
+<h3 id="install">install</h3>
+<p>Mac 上透過 brew 安裝 youtube-dl 相當簡單.</p>
+<pre><code>$ brew install youtube-dl
+</code></pre><h3 id="ffmpeg">ffmpeg</h3>
+<p>youtube-dl 是 python script, 利用 python 適合寫爬蟲的特性, 解析 youtube 影片位置並下載.
+目前 youtube 網站中高畫質格式多為 video-only 或 audio-only 的 webm 格式,
+傳統 mp4 格式大多只到 720p.
+而 youtube-dl 只能下載影片, 無法轉換影片格式, 若想下載更高畫質的影片,
+則需安裝 <a href="https://www.ffmpeg.org/">ffmpeg</a> 來轉檔, 嵌入字幕, 提取音頻, 加入專輯封面等等 Post-processing.</p>
+<pre><code>$ brew install ffmpeg
+</code></pre><h2 id="usage">Usage</h2>
+<p>基本使用只要輸入 youtube 網址後就會開始下載, 預設是最佳影片格式.
+若沒有安裝 ffmpeg 通常會下載 720p 的 mp4 檔,
+有安裝 ffmpeg 則會下載最佳畫質的 video 和 audio 後合併.</p>
+<pre><code>$ youtube-dl https://www.youtube.com/watch?v=rkAfWfZkfyo
+
+[youtube] rkAfWfZkfyo: Downloading webpage
+[youtube] rkAfWfZkfyo: Downloading video info webpage
+[download] Resuming download at byte 31858886
+[download] Destination: 4K UHD Video power of samsung 4k hdr demo test video for 4k tv-rkAfWfZkfyo.f313.webm
+[download] 100% of 634.40MiB in 01:10
+[download] Destination: 4K UHD Video power of samsung 4k hdr demo test video for 4k tv-rkAfWfZkfyo.f251.webm
+[download] 100% of 5.43MiB in 00:00
+[ffmpeg] Merging formats into &quot;4K UHD Video power of samsung 4k hdr demo test video for 4k tv-rkAfWfZkfyo.webm&quot;
+Deleting original file 4K UHD Video power of samsung 4k hdr demo test video for 4k tv-rkAfWfZkfyo.f313.webm (pass -k to keep)
+Deleting original file 4K UHD Video power of samsung 4k hdr demo test video for 4k tv-rkAfWfZkfyo.f251.webm (pass -k to keep)
+</code></pre><h3 id="下載指定格式">下載指定格式</h3>
+<p>Youtube-dl 預設會下載最高畫質的影片, 但可以自己選擇想要的品質</p>
+<p>Ex: 下載解析度不高於 480p 的影片</p>
+<pre><code>$ youtube-dl -f 'bestvideo[height&lt;=480][ext=mp4]+bestaudio/best[height&lt;=480][ext=m4a]' &lt;url&gt;
+</code></pre><p><strong>下載不同畫質與格式</strong></p>
+<p>預設會下載最高畫質的影片, 如果要不同畫質可以先使用 -F, 會列出這個影片所有的畫質與格式</p>
+<pre><code>$ youtube-dl -F https://www.youtube.com/watch?v=rkAfWfZkfyo
+
+[youtube] rkAfWfZkfyo: Downloading webpage
+[youtube] rkAfWfZkfyo: Downloading video info webpage
+[info] Available formats for rkAfWfZkfyo:
+format code  extension  resolution note
+249          webm       audio only DASH audio   56k , opus @ 50k, 2.11MiB
+250          webm       audio only DASH audio   75k , opus @ 70k, 2.79MiB
+140          m4a        audio only DASH audio  128k , m4a_dash container, mp4a.40.2@128k, 5.14MiB
+171          webm       audio only DASH audio  135k , vorbis@128k, 5.05MiB
+251          webm       audio only DASH audio  141k , opus @160k, 5.43MiB
+278          webm       256x144    144p   99k , webm container, vp9, 30fps, video only, 3.57MiB
+160          mp4        256x144    144p  111k , avc1.4d400c, 30fps, video only, 2.79MiB
+242          webm       426x240    240p  229k , vp9, 30fps, video only, 7.42MiB
+133          mp4        426x240    240p  246k , avc1.4d4015, 30fps, video only, 5.85MiB
+243          webm       640x360    360p  453k , vp9, 30fps, video only, 13.89MiB
+134          mp4        640x360    360p  635k , avc1.4d401e, 30fps, video only, 16.18MiB
+244          webm       854x480    480p  858k , vp9, 30fps, video only, 25.31MiB
+135          mp4        854x480    480p 1337k , avc1.4d401f, 30fps, video only, 32.15MiB
+247          webm       1280x720   720p 2100k , vp9, 30fps, video only, 52.51MiB
+136          mp4        1280x720   720p 2673k , avc1.4d401f, 30fps, video only, 62.45MiB
+248          webm       1920x1080  1080p 3857k , vp9, 30fps, video only, 94.03MiB
+137          mp4        1920x1080  1080p 5017k , avc1.640028, 30fps, video only, 110.63MiB
+271          webm       2560x1440  1440p 8886k , vp9, 30fps, video only, 281.05MiB
+313          webm       3840x2160  2160p 18240k , vp9, 30fps, video only, 634.40MiB
+43           webm       640x360    medium , vp8.0, vorbis@128k, 34.71MiB
+18           mp4        640x360    medium  670k , avc1.42001E, mp4a.40.2@ 96k (44100Hz), 27.12MiB
+22           mp4        1280x720   hd720 1670k , avc1.64001F, mp4a.40.2@192k (44100Hz) (best)
+</code></pre><p>要下載不同格式使用 <code>-f 'video code+audio code</code> 就可以抓不同畫質與音質的影片.</p>
+<p>例如要抓 1280x720 的畫質, 就選 video code 136 跟 audio code 140, 這樣 youtube-dl 就會抓對應的畫質與音質的影片下來了</p>
+<pre><code>$ youtube-dl -f '136+140' https://www.youtube.com/watch?v=rkAfWfZkfyo
+</code></pre><h3 id="下載播放清單">下載播放清單</h3>
+<p>輸入播放清單網址, youtube-dl 則會自動下載清單.
+除了影片網址的部分改成影片清單的網址, 其他部分和下載影片一樣。</p>
+<pre><code>$ youtube-dl -f mp4 &lt;playlist-url&gt;
+</code></pre><p><strong>指定起點和終點</strong></p>
+<ul>
+<li><code>--playlist-start NUMBER</code> 指定起點</li>
+<li><code>—-playlist-end NUMBER</code> 指定終點</li>
+</ul>
+<p>Ex: 從第三個影片開始下載到最後一個影片</p>
+<pre><code>$ youtube-dl --playlist-start 3 -f mp4 &lt;playlist-url&gt;
+</code></pre><p>Ex: 從第一個影片下載到倒數第二個影片</p>
+<pre><code>$ youtube-dl --playlist-end 2 -f mp4 &lt;playlist-url&gt;
+</code></pre><p>Ex: 從第三個影片開始下載到倒數第二個影片</p>
+<pre><code>$ youtube-dl --playlist-start 3 --playlist-end 2 -f mp4 &lt;playlist-url&gt;
+</code></pre><p><strong>使用下載清單</strong></p>
+<p>若播放清單影片太多, 所需下載時間長, 可能必須分次執行時,
+可以使用已下載清單的功能, 已避免重複下載.</p>
+<pre><code>$ youtube-dl --download-archive downloaded.txt -ciw &lt;playlist-url&gt;
+</code></pre><p>With the option <code>--download-archive FILE</code> youtube-dl both reads and adds to a list of files not to download again.
+Every time a file is successfully downloaded, that video id is added to FILE.</p>
+<p><strong>建立已下載清單</strong></p>
+<p>若之前下載時忘了建立清單, 可透過下列 script 把既有的檔案輸出成已下載清單,
+建立完成後再透過上述指令接續下載.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> n in *.*
+  <span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$n<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span>~ -<span style="color:#f92672">[</span>-_0-9a-zA-Z<span style="color:#f92672">]{</span>11<span style="color:#f92672">}</span>.*$ <span style="color:#f92672">]]</span>
+      <span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;youtube </span><span style="color:#e6db74">${</span>n: -15: 11<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> &gt;&gt; downloaded.txt
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h2 id="see-also">See Also</h2>
+<p>以上筆記為超濃縮版, youtube-dl 還有更多強大的功能和參數可供使用.
+如果要更詳細的參考文件, 可以直接參考官方文件: <a href="https://github.com/rg3/youtube-dl">https://github.com/rg3/youtube-dl</a></p>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://ianwu.tw/press/topic/command_line_program/youtube-dl.html">youtube-dl | 院長的筆記本</a></li>
+<li><a href="https://yogapan.github.io/2017/08/16/Youtube-dl%E6%BF%83%E7%B8%AE%E6%95%99%E5%AD%B8%E7%AD%86%E8%A8%98/">Youtube-dl濃縮教學筆記 | 小蛇蛇的筆記</a></li>
+<li><a href="https://askubuntu.com/questions/673442/downloading-youtube-playlist-with-youtube-dl-skipping-existing-files">Downloading youtube playlist with youtube-dl, skipping existing files - Ask Ubuntu</a></li>
+</ul>
+<h3 id="gui-downloader">GUI Downloader</h3>
+<ul>
+<li><a href="https://freetubeapp.io/">FreeTube - The Private YouTube Client</a>
+<ul>
+<li><a href="https://www.kocpc.com.tw/archives/355689">FreeTube 免費 YouTube 播放工具，無廣告、支援影片與音樂下載、訂閱功能 - 電腦王阿達</a></li>
+</ul>
+</li>
+<li><a href="http://www.gihosoft.com/free-youtube-downloader.html">Gihosoft TubeGet - Free YouTube Downloader for PC &amp; Mac</a>
+<ul>
+<li><a href="https://applefans.today/gihosoft-tubeget-download-youtube/">如何在 Mac 下載 YouTube 1080P 高清影片 – APPLEFANS 蘋果迷</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://kywk.github.io/moco/tags/youtube/">youtube</a></span>
+        <span class="tag"><a href="https://kywk.github.io/moco/tags/cli/">cli</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://kywk.github.io/moco/categories/cli/">cli</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        725 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-02-07 11:46
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        <style type="text/css">
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+ 
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+ 
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5;
+  border-color: #0077b5;
+}
+
+.resp-sharing-button--linkedin:hover,
+.resp-sharing-button--linkedin:active {
+  background-color: #046293;
+  border-color: #046293;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf;
+  border-color: #5f99cf;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+
+.resp-sharing-button--telegram {
+  background-color: #54A9EB;
+}
+
+.resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;}
+</style>
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm3.6 11.5h-2.1v7h-3v-7h-2v-2h2V8.34c0-1.1.35-2.82 2.65-2.82h2.35v2.3h-1.4c-.25 0-.6.13-.6.66V9.5h2.34l-.24 2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=moco&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm5.26 9.38v.34c0 3.48-2.64 7.5-7.48 7.5-1.48 0-2.87-.44-4.03-1.2 1.37.17 2.77-.2 3.9-1.08-1.16-.02-2.13-.78-2.46-1.83.38.1.8.07 1.17-.03-1.2-.24-2.1-1.3-2.1-2.58v-.05c.35.2.75.32 1.18.33-.7-.47-1.17-1.28-1.17-2.2 0-.47.13-.92.36-1.3C7.94 8.85 9.88 9.9 12.06 10c-.04-.2-.06-.4-.06-.6 0-1.46 1.18-2.63 2.63-2.63.76 0 1.44.3 1.92.82.6-.12 1.95-.27 1.95-.27-.35.53-.72 1.66-1.24 2.04z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F&amp;title=moco&amp;summary=moco&amp;source=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M9.5,16.5h-2v-7h2V16.5z M8.5,7.5 c-0.553,0-1-0.448-1-1c0-0.552,0.447-1,1-1s1,0.448,1,1C9.5,7.052,9.053,7.5,8.5,7.5z M18.5,16.5h-3V13c0-0.277-0.225-0.5-0.5-0.5 c-0.276,0-0.5,0.223-0.5,0.5v3.5h-3c0,0,0.031-6.478,0-7h3v0.835c0,0,0.457-0.753,1.707-0.753c1.55,0,2.293,1.12,2.293,3.296V16.5z" />
+    </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F&amp;resubmit=true&amp;title=moco" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="9.391" cy="13.392" r=".978"/><path d="M14.057 15.814c-1.14.66-2.987.655-4.122-.004-.238-.138-.545-.058-.684.182-.13.24-.05.545.19.685.72.417 1.63.646 2.568.646.93 0 1.84-.228 2.558-.642.24-.13.32-.44.185-.68-.14-.24-.445-.32-.683-.18zM5 12.086c0 .41.23.78.568.978.27-.662.735-1.264 1.353-1.774-.2-.207-.48-.334-.79-.334-.62 0-1.13.507-1.13 1.13z"/><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm6.673 14.055c.01.104.022.208.022.314 0 2.61-3.004 4.73-6.695 4.73s-6.695-2.126-6.695-4.74c0-.105.013-.21.022-.313C4.537 13.73 4 12.97 4 12.08c0-1.173.956-2.13 2.13-2.13.63 0 1.218.29 1.618.757 1.04-.607 2.345-.99 3.77-1.063.057-.803.308-2.33 1.388-2.95.633-.366 1.417-.323 2.322.085.302-.81 1.076-1.397 1.99-1.397 1.174 0 2.13.96 2.13 2.13 0 1.177-.956 2.133-2.13 2.133-1.065 0-1.942-.79-2.098-1.81-.734-.4-1.315-.506-1.716-.276-.6.346-.818 1.395-.88 2.087 1.407.08 2.697.46 3.728 1.065.4-.468.987-.756 1.617-.756 1.17 0 2.13.953 2.13 2.13 0 .89-.54 1.65-1.33 1.97z"/><circle cx="14.609" cy="13.391" r=".978"/><path d="M17.87 10.956c-.302 0-.583.128-.79.334.616.51 1.082 1.112 1.352 1.774.34-.197.568-.566.568-.978 0-.623-.507-1.13-1.13-1.13z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=moco&amp;url=https%3A%2F%2Fkywk.github.io%2Fmoco%2F" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 23.5c6.35 0 11.5-5.15 11.5-11.5S18.35.5 12 .5.5 5.65.5 12 5.65 23.5 12 23.5zM2.505 11.053c-.31.118-.505.738-.505.738s.203.62.513.737l3.636 1.355 1.417 4.557a.787.787 0 0 0 1.25.375l2.115-1.72a.29.29 0 0 1 .353-.01L15.1 19.85a.786.786 0 0 0 .746.095.786.786 0 0 0 .487-.573l2.793-13.426a.787.787 0 0 0-1.054-.893l-15.568 6z" fill-rule="evenodd"/></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+
+          
+            <span class="button next">
+              <a href="https://kywk.github.io/moco/posts/2020/12/cli_encrypt-tarball/">
+                <span class="button__text">Tar 加密打包語法</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kywk-moco" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://kywk.github.io/moco">Moo Cow</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span><span><a href="https://kywk.github.io/moco/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://kywk.github.io/moco/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+
+
+
+    </body>
+</html>

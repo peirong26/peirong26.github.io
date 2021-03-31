@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rclone on moco</title>
+    <link>https://kywk.github.io/moco/tags/rclone/</link>
+    <description>Recent content in rclone on moco</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 07 Dec 2020 17:35:35 +0800</lastBuildDate><atom:link href="https://kywk.github.io/moco/tags/rclone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup Rclone for Google Team Drive on macOS</title>
+      <link>https://kywk.github.io/moco/posts/2020/12/gd_rclone-config/</link>
+      <pubDate>Mon, 07 Dec 2020 17:35:35 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/posts/2020/12/gd_rclone-config/</guid>
+      <description>針對 Google Drive 個人與商業用戶, Google 分別提供了 Backup and Sync 以及 DriveFS 兩個桌面軟體以便操作, 但無論是 Backup and Sync 還是 DriveFS 都不支援 Team Drive, 無法在桌面環境下操作 Team Drive, 只能透過網頁端處理.
+所幸萬能的 Rclone 有支援 Team Drive. Rclone Rclone 是一個非常好用的雲端硬碟管理工具, 在命令模式下直接針對多數雲端硬碟服務進行操作, 搭配其他系統工具, 可自動化雲端硬碟的管理, 包括異地備份, 打包, 移除老舊檔案&amp;hellip; 等等.
+目前 Rclone 支援的雲端硬碟服務多達 38 種, 其中本篇的重點在第 13 項 &amp;ldquo;Google Drive&amp;rdquo;.
+注意: 第 12 項的 Google Cloud Storage 並不是 Google Drive, 而是 GCP 中類似 AWS S3 的服務.
+Install rclone on macOS 在 macOS 透過 homebrew 安裝的 rclone 目前不支援 mount 命令.</description>
+    </item>
+    
+  </channel>
+</rss>

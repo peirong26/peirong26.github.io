@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Moo Cow">
+    <meta name="description" content="網路上免費創建團隊硬碟理論上創建者是團隊硬碟管理員, 但實際上所有的團隊硬碟仍受 Google GSuite / Workspace 機構管理員管轄. 機構管理員雖然無法直接存取檔案, 但有權將檔案擁有者轉移給他人. 如果只是存放網路上載來的資源就算了, 若是存放個人檔案, 仍建議加密壓縮.
+TarBall Tar 支援 gzip, bz2, xz&hellip; 等多種壓縮方式, 但 tar 並不支援加密. 在命令列模式下要加密 tarball, 需透過其他指令來完成, 最常用的是 openssl.
+加密 簡單指令如下: (僅加密打包不壓縮)
+$ tar cvf - FILE_NAME | openssl des3 -salt -k passw0rd -out /path/to/file.tar 這個指令主要分成兩部分
+第一部分是 tar cvf - FILE_NAME, 意思是針對 FILE_NAME 進行打包, 其中三個參數的意思是:
+ c: create 創建一個新的 tarball 文件 v: verbose 輸出詳細的處理過程 f:file 需要打包的檔案 (Unix 下一切都是檔案, 資料夾也屬於檔案)  第二部分是 openssl des3 -salt -k passw0rd -out /path/to/file.">
+    <meta name="keywords" content="blog,developer">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tar 加密打包語法"/>
+<meta name="twitter:description" content="網路上免費創建團隊硬碟理論上創建者是團隊硬碟管理員, 但實際上所有的團隊硬碟仍受 Google GSuite / Workspace 機構管理員管轄. 機構管理員雖然無法直接存取檔案, 但有權將檔案擁有者轉移給他人. 如果只是存放網路上載來的資源就算了, 若是存放個人檔案, 仍建議加密壓縮.
+TarBall Tar 支援 gzip, bz2, xz&hellip; 等多種壓縮方式, 但 tar 並不支援加密. 在命令列模式下要加密 tarball, 需透過其他指令來完成, 最常用的是 openssl.
+加密 簡單指令如下: (僅加密打包不壓縮)
+$ tar cvf - FILE_NAME | openssl des3 -salt -k passw0rd -out /path/to/file.tar 這個指令主要分成兩部分
+第一部分是 tar cvf - FILE_NAME, 意思是針對 FILE_NAME 進行打包, 其中三個參數的意思是:
+ c: create 創建一個新的 tarball 文件 v: verbose 輸出詳細的處理過程 f:file 需要打包的檔案 (Unix 下一切都是檔案, 資料夾也屬於檔案)  第二部分是 openssl des3 -salt -k passw0rd -out /path/to/file."/>
+
+    <meta property="og:title" content="Tar 加密打包語法" />
+<meta property="og:description" content="網路上免費創建團隊硬碟理論上創建者是團隊硬碟管理員, 但實際上所有的團隊硬碟仍受 Google GSuite / Workspace 機構管理員管轄. 機構管理員雖然無法直接存取檔案, 但有權將檔案擁有者轉移給他人. 如果只是存放網路上載來的資源就算了, 若是存放個人檔案, 仍建議加密壓縮.
+TarBall Tar 支援 gzip, bz2, xz&hellip; 等多種壓縮方式, 但 tar 並不支援加密. 在命令列模式下要加密 tarball, 需透過其他指令來完成, 最常用的是 openssl.
+加密 簡單指令如下: (僅加密打包不壓縮)
+$ tar cvf - FILE_NAME | openssl des3 -salt -k passw0rd -out /path/to/file.tar 這個指令主要分成兩部分
+第一部分是 tar cvf - FILE_NAME, 意思是針對 FILE_NAME 進行打包, 其中三個參數的意思是:
+ c: create 創建一個新的 tarball 文件 v: verbose 輸出詳細的處理過程 f:file 需要打包的檔案 (Unix 下一切都是檔案, 資料夾也屬於檔案)  第二部分是 openssl des3 -salt -k passw0rd -out /path/to/file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kywk.github.io/moco/posts/tool/cli_encrypt-tarball/" />
+<meta property="article:published_time" content="2020-12-10T17:31:07+08:00" />
+<meta property="article:modified_time" content="2020-12-10T17:31:07+08:00" />
+
+
+    <title>
+  Tar 加密打包語法 · moco
+</title>
+
+    
+      <link rel="canonical" href="https://kywk.github.io/moco/posts/tool/cli_encrypt-tarball/">
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    
+      
+      
+      <link rel="stylesheet" href="/moco/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/moco/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/moco/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/moco/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/moco/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/moco/images/apple-touch-icon.png">
+
+    
+      <script defer src="https://twemoji.maxcdn.com/v/13.0.1/twemoji.min.js"
+        integrity="sha384-5f4X0lBluNY/Ib4VhGx0Pf6iDCF99VGXJIyYy7dDLY5QlEd7Ap0hICSSZA1XYbc4" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/moco">
+      moco
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/moco/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/moco/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/moco/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/moco/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Tar 加密打包語法</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2020-12-10T17:31:07&#43;08:00'>
+                Dec 10, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/moco/categories/cli/">cli</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="/moco/tags/unix/">unix</a>
+      <span class="separator">•</span>
+    <a href="/moco/tags/cli/">cli</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>網路上免費創建團隊硬碟理論上創建者是團隊硬碟管理員,
+但實際上所有的團隊硬碟仍受 Google GSuite / Workspace 機構管理員管轄.
+機構管理員雖然無法直接存取檔案, 但有權將檔案擁有者轉移給他人.
+如果只是存放網路上載來的資源就算了, 若是存放個人檔案, 仍建議加密壓縮.</p>
+<h2 id="tarball">TarBall</h2>
+<p>Tar 支援 gzip, bz2, xz&hellip; 等多種壓縮方式, 但 tar 並不支援加密.
+在命令列模式下要加密 tarball, 需透過其他指令來完成, 最常用的是 openssl.</p>
+<h3 id="加密">加密</h3>
+<p>簡單指令如下: (僅加密打包不壓縮)</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ tar cvf - FILE_NAME | openssl des3 -salt -k passw0rd -out /path/to/file.tar
+</code></pre></div><p>這個指令主要分成兩部分</p>
+<p>第一部分是 <code>tar cvf - FILE_NAME</code>, 意思是針對 FILE_NAME 進行打包,
+其中三個參數的意思是:</p>
+<ul>
+<li>c: create 創建一個新的 tarball 文件</li>
+<li>v: verbose 輸出詳細的處理過程</li>
+<li>f:file 需要打包的檔案 (Unix 下一切都是檔案, 資料夾也屬於檔案)</li>
+</ul>
+<p>第二部分是 <code>openssl des3 -salt -k passw0rd -out /path/to/file.tar</code>
+意思是針對文件透過 des3 加密, 其中參數的意思是:</p>
+<ul>
+<li>des3 指定用來加密的演算法, 常見有三種 des, des3, idea</li>
+<li>salt 為密碼添加一個隨機數, 和 <code>-k</code> 一起使用, 可防範字典攻擊</li>
+<li>k 指定的密碼</li>
+<li>out 輸出文件名字</li>
+</ul>
+<h3 id="解密">解密</h3>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ openssl des3 -d -k passw0rd -salt -in /path/to/file.tar.gz | tar xvf -
+</code></pre></div><p>這指令剛好把加密打包的行為反過來. 先透過 openssl 把檔案解密後, 再利用 tar 解開 tarball 內容.</p>
+<h3 id="alias">alias</h3>
+<p>整理資料時需大量的打包檔案, 未避免輸入時手誤打錯密碼,
+直接在 bashrc 中新增加密和解密的 alias, 把密碼固定寫在 alias 中,
+這樣加密打包時無須輸入一長串命令, 也不用擔心手誤 key 錯密碼.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">alias ens=&#39;openssl des3 -salt -k passw0rd &#39;
+alias des=&#39;openssl des3 -d -salt -k passw0rd &#39;
+</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># 加密打包
+$ tar cvf - FILE_NAME | ens -out FILE_NAME.tar.x
+# 解密
+$ des -in FILE_NAME.tar.x | tar xvf -
+</code></pre></div><h2 id="see-also">See Also</h2>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="http://note.drx.tw/2008/04/command.html">GNU / Linux 各種壓縮與解壓縮指令 | 凍仁的筆記</a></li>
+<li><a href="https://www.itread01.com/content/1551377067.html">tar命令加密壓縮 - IT閱讀</a></li>
+<li><a href="https://www.itread01.com/content/1547949421.html">Linux tar加密壓縮解壓 - IT閱讀</a></li>
+<li><a href="http://blog.changyy.org/2014/06/linux-openssl-des3-ubuntu-1404.html">第二十四個夏天後: [Linux] 使用 Openssl 做簡易的(DES3)加密、解密 @ Ubuntu 14.04</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kywk-moco" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.</p>
+      
+      
+        ©
+        
+          2020 -
+        
+        2021
+         Moo Cow 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+        
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/moco/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+    <script async defer data-domain="example.com" src="https://analytics.example.com/js/plausible.js"></script>
+
+
+    
+
+    
+  </body>
+
+</html>

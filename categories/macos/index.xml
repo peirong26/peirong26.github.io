@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macos on moco</title>
+    <link>https://kywk.github.io/moco/categories/macos/</link>
+    <description>Recent content in macos on moco</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 15 Mar 2021 15:33:18 +0800</lastBuildDate><atom:link href="https://kywk.github.io/moco/categories/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup shadowsocks on macOS</title>
+      <link>https://kywk.github.io/moco/posts/2021/03/macos_shadowsocks/</link>
+      <pubDate>Mon, 15 Mar 2021 15:33:18 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/posts/2021/03/macos_shadowsocks/</guid>
+      <description>因大陸案子關係, 接觸了些大陸網路環境, 也因此接觸到 shadowsocks.
+Shadowsocks（簡稱SS） 是一種基於Socks5代理方式的加密傳輸協定, 也可以指實現這個協定的各種開發包. 在中國大陸, SS 廣泛用於突破防火長城（GFW）, 以瀏覽被封鎖, 遮蔽或干擾的內容.
+Shadowsocks 需找個 VPS 跑 server, 再透過本地端 client 連線. server 端的設定這篇不談, 僅紀錄 macOS 上安裝與設定 client 的過程.
+安裝 shadowsocks-libev Shadowsocks 有不少 client 可用, 我選用 shadowsocks-libev. 他可以當系統服務, 也可以透過不少 plugin 來擴充功能, 相當強大方便.
+透過套件管理工具 homebrew 即可安裝 shadowsocks-libev.
+$ brew update $ brew install shadowsocks-libev ... To have launchd start shadowsocks-libev now and restart at login: brew services start shadowsocks-libev Or, if you don&amp;#39;t want/need a background service you can just run: /usr/local/opt/shadowsocks-libev/bin/ss-local -c /usr/local/etc/shadowsocks-libev.</description>
+    </item>
+    
+    <item>
+      <title>macOS 開發環境建構 2021 Feb</title>
+      <link>https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/</link>
+      <pubDate>Fri, 26 Feb 2021 14:53:37 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/</guid>
+      <description>過去重灌電腦最麻煩的就是還原設定檔, 雖然 Mac 有 TimeMachine 可無痛轉移, 但個人癖好還是喜歡重新檢視與安裝設定. 但越來越多軟體可以把配置設定存在雲端, 不但保持多台電腦間的同步, 重灌也只需登入帳號就可還原配置, 個人以為比 TimeMachine 方便.
+但仍有些開發或 CLI 工具, 是將配置檔存放於家目錄下的隱藏檔 (.files), 無法透過雲端同步. 我是把這些檔案搬移到 Dropbox 資料夾下, 再建立 Symbolic Link, 如此就可透過 Dropbox 來同步設定檔.
+現在重灌電腦要安裝設定環境, 僅需透過 shell script 安裝軟體與建立 Symbolic Link, 相當無痛.
+CLI Environment iTerm2 $ brew install iterm2 zsh and oh-my-zsh macOS Mojave (10.14.x) 開始內建 zsh, 而 Catalina (10.15.x) 以後預設 Shell 改為 zsh.
+在 macOS Mojave 系統要把預設 shell 改為 zsh 以及配置 zsh 最方便也推薦的方式就是透過 Oh My Zsh</description>
+    </item>
+    
+    <item>
+      <title>macOS 系統安裝紀錄 2021.Feb</title>
+      <link>https://kywk.github.io/moco/posts/2021/02/macos_setup-note-2021-feb/</link>
+      <pubDate>Fri, 26 Feb 2021 14:05:03 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/posts/2021/02/macos_setup-note-2021-feb/</guid>
+      <description>因故拿了 MacBook Pro 2015 重灌 macOS Mojave, 記錄一下軟體安裝歷程. 隨著網頁工具越來越成熟, 電腦上必備的工具倒是越來越少.
+前置軟體 Homebrew Homebrew
+homebrew cask 的支援越來越多, 越來越方便, 個人多數軟體都透過 homebrew 安裝. 在開始安裝各類軟體前, Homebrew 是必要的.
+$ /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; Dropbox 我的專案和軟體配置檔案 (.files) 都放在 Dropbox 上, .files 裡也存了為了新環境設定的簡單 setup.sh. 故新電腦的第二件事就是安裝 Dropbox Desktop, 把工作專案和環境配置同步到新電腦.
+Google Chrome 雖已漸漸棄用 Chrome, 改用 Safari 和 Edge. 但在 Chrome 長期使用習慣, 仍無法馬上改變. 導致先安裝 Chrome 也是安裝系統的必備之一.
+Sublime Text 其實開發程式的主力已經轉為 VSCode, GoLand, WebStorm&amp;hellip; 等. 但 Sublime Text 啟動速度快, 基本作業順暢, 仍是我必然安裝的工具.</description>
+    </item>
+    
+    <item>
+      <title>macOS 安裝 iftop 失敗與解決方式</title>
+      <link>https://kywk.github.io/moco/posts/2020/12/macos_install-iftop/</link>
+      <pubDate>Mon, 07 Dec 2020 16:48:04 +0800</pubDate>
+      
+      <guid>https://kywk.github.io/moco/posts/2020/12/macos_install-iftop/</guid>
+      <description>測試 Rclone 伺服機端傳輸時發覺 macOS 並無 iftop 指令, 習慣性地用 brew 安裝了.
+$ brew install iftop ... ... iftop requires root privileges so you will need to run `sudo iftop`. You should be certain that you trust any software you grant root privileges. 安裝完成後提示 iftop 這個指令需要用 root 權限執行.
+然而使用 sudo iftop 之後卻出現 command not found 的錯誤.
+$sudo iftop sudo: iftop: command not found 上網查了查, 看到這篇 一次macbook安装iftop失败的经历及解决方式_偷懒的加菲-CSDN博客
+跟著該文敘述一一確認後, 發覺我電腦上只存在著 sbin 不在 path 環境變數的問題.</description>
+    </item>
+    
+  </channel>
+</rss>
