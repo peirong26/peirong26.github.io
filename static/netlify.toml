@@ -1,7 +1,0 @@
-[[redirects]]
-  from = "/feed"
-  to = "https://feeds.feedburner.com/leonardofaria"
-
-[[redirects]]
-  from = "/2018/06/24/people-lead-readme/"
-  to = "/2018/06/24/engineering-manager-readme/"
