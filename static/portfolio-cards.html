@@ -1,0 +1,62 @@
+<link href="https://unpkg.com/tailwindcss@^1.4.5/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+    :root {
+        --base: #ffc600;
+        --container-width: 1280px;
+        --container-height: 630px;
+        --container-background-color: transparent;
+        --card-width: 500px;
+    }
+
+    .container {
+        background-color: var(--container-background-color);
+        width: var(--container-width);
+        height: var(--container-height);
+    }
+
+    .inner-container {
+        height: calc(var(--container-height) * 2);
+        transform: rotate(-30deg);
+        margin-top: -15%;
+        margin-left: -5%;
+    }
+
+    .inner-container img {
+        width: var(--card-width);
+    }
+</style>
+
+<div class="container overflow-hidden">
+    <div class="inner-container h-full flex-grow-0 flex-shrink-0 flex flex-wrap flex-col transform">
+        <!-- 1st column -->
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/autosimulado.jpg" />
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/previdencia.jpg" />
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/dynamicleap.jpg" />
+
+        <!-- 2nd column -->
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/envirosax.jpg" />
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/mvb.jpg" />
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/vertuity.jpg" />
+
+        <!-- 3nd column -->
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/sharesmart.jpg" />
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/codestacker.jpg" />
+        <img class="flex-grow-0 flex-shrink-0 border-solid m-3 h-auto shadow-2xl"
+            src="/images/portfolio/supertestes.jpg" />
+
+
+
+
+
+    </div>
+
+</div>
