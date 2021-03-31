@@ -16,10 +16,10 @@
     
     <item>
       <title>Blabla</title>
-      <link>/post/hello/</link>
+      <link>/posts/hello/</link>
       <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/hello/</guid>
+      <guid>/posts/hello/</guid>
       <description>
         
           &lt;img src=&#34;/img/hello.jpg&#34;/&gt;
@@ -54,6 +54,27 @@ My research interests center on machine learning, computer vision and medical im
     </item>
     
     <item>
+      <title>Misc</title>
+      <link>/misc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/misc/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          A little history ~ I was born in Ganzhou, Jiangxi, China. My hometown is well-known for its hundred-year old banyan trees (榕树) along the Gan River. Banyan&amp;rsquo;s seeds typically germinate in a crack and their roots seek out water deep underground. This is where my first name &amp;ldquo;沛榕&amp;rdquo; came from, with my parents wish for me to keep eyes on the stars, while feet on the ground.
+About color ~ Green is always my favorite color.
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>News</title>
       <link>/news/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -67,11 +88,11 @@ My research interests center on machine learning, computer vision and medical im
         
         
         
-          2021 03.22 ~ I will join Facebook AI&amp;rsquo;s Computer Vision team as a Research Intern for Summer 2021.
+          2021 03.22 ~ Joining Facebook AI&amp;rsquo;s Computer Vision team as a Research Intern for Summer 2021.
 03.01 ~ One paper accepted as Oral at CVPR 2021, &amp;ldquo;Discovering Hidden Physics Behind Transport Dynamics&#39;&#39; [pdf]
 2020 09.05 ~ New preprint on Arxiv: &amp;ldquo;Perfusion Imaging: A Data Assimilation Approach&#39;&#39; [pdf]
 08.12 ~ New preprint on Arxiv: &amp;ldquo;Local Temperature Scaling for Probability Calibration&#39;&#39; [pdf]
-06.23 ~ One paper accepted at MICCAI 2020, &amp;ldquo;Fluid Registration Between Lung CT and Stationary Chest Tomosynthesis Images&#39;&#39; [pdf]
+08.15 ~ Awarded the MICCAI Student Travel Award, Lima, Peru
           
         
         </description>
