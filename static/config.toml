@@ -42,21 +42,29 @@ paginate = 10
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "1"
+        identifier = "about"
         name = "About"
         url = "/me" 
+	weight = "1"
 
       [[languages.en.menu.main]]
-        identifier = "2"
+        identifier = "news"
         name = "News"
         url = "/news" 
+	weight = "100"
+
+      [[languages.en.menu.main]]
+        identifier = "misc"
+        name = "Misc"
+        url = "/misc"   
 	
       [[languages.en.menu.main]]
         identifier = "3"
-        name = "Post"
-        url = "/post" 
+        name = "Posts"
+        url = "/posts" 
+	weight = "0"
 
       [[languages.en.menu.main]]
-        identifier = "5"
+        identifier = "cv"
         name = "Resume/CV"
-        url = "/cv_peirong.pdf" 
+        url = "/cv_peirong.pdf"  
