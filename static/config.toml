@@ -34,7 +34,7 @@ paginate = 10
 
     [languages.en.params.logo] 
       logoText = "$ cd /home/peirong"
-      logoHomeLink = "/about"
+      logoHomeLink = "/me"
     # or
     #
     # path = "/img/your-example-logo.svg"
@@ -44,7 +44,7 @@ paginate = 10
       [[languages.en.menu.main]]
         identifier = "1"
         name = "About"
-        url = "/about" 
+        url = "/me" 
 
       [[languages.en.menu.main]]
         identifier = "2"
