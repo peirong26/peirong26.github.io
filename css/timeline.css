@@ -1,0 +1,210 @@
+/* -------------------------------------
+ * timeline
+ * ------------------------------------- */
+.timeline {
+  font-family: "Noto Sans", sans-serif;
+  color: #9c9c9c;
+  background: transparent;
+}
+.timeline h2 {
+  margin: 3em 0 0 0;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.timeline ul {
+  list-style: none;
+  margin: 50px 0 30px 60px;
+  padding-left: 36px;
+  border-left: 4px solid #e8e8e8;
+}
+.timeline li {
+  margin: 40px 0;
+  position: relative;
+}
+.timeline p {
+  margin: 0 0 15px;
+}
+
+.timeline .date {
+  margin-top: -10px;
+  top: 37px;
+  left: -108px;
+  font-size: 0.85em;
+  line-height: 20px;
+  position: absolute;
+}
+
+.timeline .circle {
+  position: absolute;
+  display: block;
+  top: 20px;
+  left: -53px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 1px 0 2px rgba(0, 0, 0, 0.05);
+  background: #08adda;
+  padding: 5px;
+  color: #fff;
+  font-size: .9em;
+  text-align: center;
+}
+
+.timeline .content {
+  max-height: 20px;
+  padding: 60px 20px 10px 20px;
+  margin: -30px 0 -10px 0;
+  border-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.5em;
+  position: relative;
+}
+.timeline .content:before, .timeline .content:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  position: absolute;
+  pointer-events: none;
+  right: 100%;
+}
+.timeline .content:before {
+  border-right-color: inherit;
+  border-width: 20px;
+  top: 35px;
+  margin-top: -20px;
+}
+.timeline .content:after {
+  border-right-color: #fff;
+  border-width: 17px;
+  top: 35px;
+  margin-top: -17px;
+}
+.timeline .content p {
+  color: transparent;
+  text-align: justify;
+  word-break: break-word;
+  hyphens: auto;
+  overflow: hidden;
+}
+.timeline .content ul {
+  list-style: disc;
+  margin: 0;
+  padding-left: 0;
+  border-left: 0;
+}
+.timeline .content li {
+  margin: 5px 0;
+}
+
+
+.timeline label {
+  font-size: 1.3em;
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+  top: 20px;
+  transition: transform 0.2s linear;
+}
+
+.timeline-box {
+  display: none;
+}
+
+.timeline-box:checked + .relative label {
+  cursor: auto;
+  transform: translateX(42px);
+}
+.timeline-box:checked ~ .content {
+  max-height: 180px;
+  border-color: #08adda;
+  margin-right: 20px;
+  transform: translateX(20px);
+  transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear;
+}
+.timeline-box:checked ~ .content p {
+  max-height: 200px;
+  color: #9c9c9c;
+  transition: color 0.3s linear 0.3s;
+}
+.timeline-box:checked + .relative .circle {
+  position: absolute;
+  top: 10px;
+  left: -65px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  padding: 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+.circle.bg-green {
+  background: #75ce66;
+}
+.circle.bg-red {
+  background: #c03b44;
+}
+.circle.bg-yellow {
+  background: #f0ca45;
+}
+
+
+/* -------------------------------------
+ * mobile phones (vertical version only)
+ * ------------------------------------- */
+@media screen and (max-width: 767px) {
+  .timeline {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+  .timeline li {
+    margin: 50px 0;
+  }
+
+  .timeline label {
+    width: 85%;
+    font-size: 1.1em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    transform: translateX(18px);
+  }
+
+  .timeline .content {
+    padding-top: 45px;
+    border-color: #e8e8e8;
+  }
+  .timeline .content:before, .timeline .content:after {
+    border: solid transparent;
+    bottom: 100%;
+  }
+  .timeline .content:before {
+    border-bottom-color: inherit;
+    border-width: 17px;
+    top: -16px;
+    left: 50px;
+    margin-left: -17px;
+  }
+  .timeline .content:after {
+    border-bottom-color: transparent;
+    border-width: 20px;
+    top: -20px;
+    left: 50px;
+    margin-left: -20px;
+  }
+  .timeline .content p {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+  .timeline .circle, .date {
+    display: none;
+  }
+}
