@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on moco</title>
-        <link>https://kywk.github.io/moco/posts/</link>
+        <link>https://peirong26.github.io/posts/</link>
         <description>Recent content in Posts on moco</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
         <lastBuildDate>Tue, 16 Mar 2021 16:58:20 +0800</lastBuildDate>
-        <atom:link href="https://kywk.github.io/moco/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://peirong26.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>在 Ubuntu Server 利用 Nginx 伺服器執行 PHP 程式</title>
-            <link>https://kywk.github.io/moco/posts/2021/03/ubuntu_nginx-php/</link>
+            <link>https://peirong26.github.io/posts/2021/03/ubuntu_nginx-php/</link>
             <pubDate>Tue, 16 Mar 2021 16:58:20 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2021/03/ubuntu_nginx-php/</guid>
+            <guid>https://peirong26.github.io/posts/2021/03/ubuntu_nginx-php/</guid>
             <description>Nginx + PHP on ubuntu 長期以來 Apache Server 的效能與承載數低落, 加上層出不窮的漏洞, 許多人陸續投向 Event-based Server 的懷抱, 例如 Nginx.
 Nginx 是一個免費開源且穩定高效的 Web 伺服器程式, 擁有反向代理及負載平衡的功能, 藉由 Non-blocking 與 epool 的特性, 大幅提昇了連線服務量與速度, 成為近年來最為廣泛運用的選擇.
 但是 Nginx 只是單純的 HTTP Server, 如果要執行程式, 還得藉助 CGI 的幫忙. Nginx 可以透過 FastCGI 去執行 PHP 程式, 且內建 FastCGI 快取功能. 而第一步需要實現的是如何讓 Nginx 正確的呼叫 PHP.
@@ -246,10 +246,10 @@ Cache 的設置相當考驗 SRE 對 PHP 服務了解程度, 並非所有服務�
         
         <item>
             <title>Setup shadowsocks on macOS</title>
-            <link>https://kywk.github.io/moco/posts/2021/03/macos_shadowsocks/</link>
+            <link>https://peirong26.github.io/posts/2021/03/macos_shadowsocks/</link>
             <pubDate>Mon, 15 Mar 2021 15:33:18 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2021/03/macos_shadowsocks/</guid>
+            <guid>https://peirong26.github.io/posts/2021/03/macos_shadowsocks/</guid>
             <description>因大陸案子關係, 接觸了些大陸網路環境, 也因此接觸到 shadowsocks.
 Shadowsocks（簡稱SS） 是一種基於Socks5代理方式的加密傳輸協定, 也可以指實現這個協定的各種開發包. 在中國大陸, SS 廣泛用於突破防火長城（GFW）, 以瀏覽被封鎖, 遮蔽或干擾的內容.
 Shadowsocks 需找個 VPS 跑 server, 再透過本地端 client 連線. server 端的設定這篇不談, 僅紀錄 macOS 上安裝與設定 client 的過程.
@@ -333,10 +333,10 @@ Stopping <span style="color:#e6db74">`</span>shadowsocks-libev<span style="color
         
         <item>
             <title>Chrome Extension List, 2021.Mar</title>
-            <link>https://kywk.github.io/moco/posts/2021/03/chrome_extension-2021-mar/</link>
+            <link>https://peirong26.github.io/posts/2021/03/chrome_extension-2021-mar/</link>
             <pubDate>Tue, 09 Mar 2021 14:37:59 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2021/03/chrome_extension-2021-mar/</guid>
+            <guid>https://peirong26.github.io/posts/2021/03/chrome_extension-2021-mar/</guid>
             <description>翻出紀錄, 上次整理 Chrome extension 已約三四年前了, 一開始紀錄 Chrome extension 是重灌電腦前整理列表, 方便重灌後使用. 但後來 Chrome 把 extension, bookmark&amp;hellip; 等個人同步在雲端上, 只需要登入個人帳號, 就可以還原之前的 extension, bookmark&amp;hellip; 等, 也就不再整理列表了.
 再次整理列表, 因為有些喜歡的 extension 已在 Chrome Store 下架, 無法還原. 尋找如何安裝該擴充時, 發現網路上有人把常用的擴充下載備份, 被下架時可以利用開發者模式安裝本地端擴充. 覺得是個不錯的方法.
 最近已經越來越感受到雲端除了方便外, 也帶來許多的不定因素. 別人分享的檔案, 上傳的影片, 發布的軟體, 都隨時可能被下架. 而本地之備份在法律上有模糊之地, 僅個人低調使用.
@@ -498,20 +498,20 @@ Kindle 閱讀效果，設定更符合習慣的瀏覽模式
         
         <item>
             <title>Sublime Text 3 Package List, 2021.Feb</title>
-            <link>https://kywk.github.io/moco/posts/2021/03/subl_packages-2021-feb/</link>
+            <link>https://peirong26.github.io/posts/2021/03/subl_packages-2021-feb/</link>
             <pubDate>Mon, 01 Mar 2021 14:37:45 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2021/03/subl_packages-2021-feb/</guid>
+            <guid>https://peirong26.github.io/posts/2021/03/subl_packages-2021-feb/</guid>
             <description></description>
             <content type="html"><![CDATA[]]></content>
         </item>
         
         <item>
             <title>macOS 開發環境建構 2021 Feb</title>
-            <link>https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/</link>
+            <link>https://peirong26.github.io/posts/2021/02/macos_dev-env-2021-feb/</link>
             <pubDate>Fri, 26 Feb 2021 14:53:37 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2021/02/macos_dev-env-2021-feb/</guid>
+            <guid>https://peirong26.github.io/posts/2021/02/macos_dev-env-2021-feb/</guid>
             <description>過去重灌電腦最麻煩的就是還原設定檔, 雖然 Mac 有 TimeMachine 可無痛轉移, 但個人癖好還是喜歡重新檢視與安裝設定. 但越來越多軟體可以把配置設定存在雲端, 不但保持多台電腦間的同步, 重灌也只需登入帳號就可還原配置, 個人以為比 TimeMachine 方便.
 但仍有些開發或 CLI 工具, 是將配置檔存放於家目錄下的隱藏檔 (.files), 無法透過雲端同步. 我是把這些檔案搬移到 Dropbox 資料夾下, 再建立 Symbolic Link, 如此就可透過 Dropbox 來同步設定檔.
 現在重灌電腦要安裝設定環境, 僅需透過 shell script 安裝軟體與建立 Symbolic Link, 相當無痛.
@@ -632,10 +632,10 @@ JS/HTML/CSS Terminal</li>
         
         <item>
             <title>macOS 系統安裝紀錄 2021.Feb</title>
-            <link>https://kywk.github.io/moco/posts/2021/02/macos_setup-note-2021-feb/</link>
+            <link>https://peirong26.github.io/posts/2021/02/macos_setup-note-2021-feb/</link>
             <pubDate>Fri, 26 Feb 2021 14:05:03 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2021/02/macos_setup-note-2021-feb/</guid>
+            <guid>https://peirong26.github.io/posts/2021/02/macos_setup-note-2021-feb/</guid>
             <description>因故拿了 MacBook Pro 2015 重灌 macOS Mojave, 記錄一下軟體安裝歷程. 隨著網頁工具越來越成熟, 電腦上必備的工具倒是越來越少.
 前置軟體 Homebrew Homebrew
 homebrew cask 的支援越來越多, 越來越方便, 個人多數軟體都透過 homebrew 安裝. 在開始安裝各類軟體前, Homebrew 是必要的.
@@ -736,10 +736,10 @@ Sublime Text 其實開發程式的主力已經轉為 VSCode, GoLand, WebStorm&am
         
         <item>
             <title>Google Team Drive 無限空間申請</title>
-            <link>https://kywk.github.io/moco/posts/2021/02/gd_team-drive-signup/</link>
+            <link>https://peirong26.github.io/posts/2021/02/gd_team-drive-signup/</link>
             <pubDate>Fri, 19 Feb 2021 11:35:05 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2021/02/gd_team-drive-signup/</guid>
+            <guid>https://peirong26.github.io/posts/2021/02/gd_team-drive-signup/</guid>
             <description>!!!!! 重要更新 !!!!! Google 已經公告 2021/07/01 起不再提供教育版無限空間.
 以下免費團隊硬碟多為教育版空間, 勢必會陸續被收回. 本篇文章不再更新.
 個人在 Team Drive 上的資料該如何逃難, 方案還在比較. 等資料移轉順利後再另發文了.
@@ -806,10 +806,10 @@ Google Drive 團隊硬碟在線自助領取 目前團隊硬碟的容量為無限
         
         <item>
             <title>利用 youtube-dl 下載 Youtube 影片</title>
-            <link>https://kywk.github.io/moco/posts/2021/02/yt_youtube-dl/</link>
+            <link>https://peirong26.github.io/posts/2021/02/yt_youtube-dl/</link>
             <pubDate>Sun, 07 Feb 2021 11:46:48 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2021/02/yt_youtube-dl/</guid>
+            <guid>https://peirong26.github.io/posts/2021/02/yt_youtube-dl/</guid>
             <description>一直都是利用播放清單和 Like 來當作 Youtube 影片的書籤. 不過陸續發現有些影片會無預期被刪除或改為私人影片, 也有些頻道會莫名消失.
 單純音樂類的播放清單就算了, 但有些專業參考性質的影片需要時找不到, 故發起把影片下載保存的念頭,
 網路上有不少下載 Youtube 影片的線上網站和 App, 試用過後最後回到最適合工程師的 youtube-dl
@@ -951,10 +951,10 @@ Every time a file is successfully downloaded, that video id is added to FILE.</p
         
         <item>
             <title>Tar 加密打包語法</title>
-            <link>https://kywk.github.io/moco/posts/2020/12/cli_encrypt-tarball/</link>
+            <link>https://peirong26.github.io/posts/2020/12/cli_encrypt-tarball/</link>
             <pubDate>Thu, 10 Dec 2020 17:31:07 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2020/12/cli_encrypt-tarball/</guid>
+            <guid>https://peirong26.github.io/posts/2020/12/cli_encrypt-tarball/</guid>
             <description>網路上免費創建團隊硬碟理論上創建者是團隊硬碟管理員, 但實際上所有的團隊硬碟仍受 Google GSuite / Workspace 機構管理員管轄. 機構管理員雖然無法直接存取檔案, 但有權將檔案擁有者轉移給他人. 如果只是存放網路上載來的資源就算了, 若是存放個人檔案, 仍建議加密壓縮.
 TarBall Tar 支援 gzip, bz2, xz&amp;hellip; 等多種壓縮方式, 但 tar 並不支援加密. 在命令列模式下要加密 tarball, 需透過其他指令來完成, 最常用的是 openssl.
 加密 簡單指令如下: (僅加密打包不壓縮)
@@ -1013,10 +1013,10 @@ $ des -in FILE_NAME.tar.x | tar xvf -
         
         <item>
             <title>Setup Rclone for Google Team Drive on macOS</title>
-            <link>https://kywk.github.io/moco/posts/2020/12/gd_rclone-config/</link>
+            <link>https://peirong26.github.io/posts/2020/12/gd_rclone-config/</link>
             <pubDate>Mon, 07 Dec 2020 17:35:35 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2020/12/gd_rclone-config/</guid>
+            <guid>https://peirong26.github.io/posts/2020/12/gd_rclone-config/</guid>
             <description>針對 Google Drive 個人與商業用戶, Google 分別提供了 Backup and Sync 以及 DriveFS 兩個桌面軟體以便操作, 但無論是 Backup and Sync 還是 DriveFS 都不支援 Team Drive, 無法在桌面環境下操作 Team Drive, 只能透過網頁端處理.
 所幸萬能的 Rclone 有支援 Team Drive. Rclone Rclone 是一個非常好用的雲端硬碟管理工具, 在命令模式下直接針對多數雲端硬碟服務進行操作, 搭配其他系統工具, 可自動化雲端硬碟的管理, 包括異地備份, 打包, 移除老舊檔案&amp;hellip; 等等.
 目前 Rclone 支援的雲端硬碟服務多達 38 種, 其中本篇的重點在第 13 項 &amp;ldquo;Google Drive&amp;rdquo;.
@@ -1251,7 +1251,7 @@ team_drive = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 代表成功的直接在伺服器端進行傳輸, 而不消耗本機頻寬, 速度快多了.</p>
 <p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fSS4nQZkkvujw8YtBCcYlw8sgyp9Xtc5f_fBKrsc96NMsTWCtAp8nRjho0i7uoj7f8kJOBaDDNbA7W4h3k3uJ8aTOD908TfYTZlmFflQXwyU7oLsE96ChT13uc0a48h2do9s6GdhdcsHgnFcbodSmriQ=w730-h588-no?authuser=0" alt=""></p>
 <p><strong>伺服器端檔案傳輸僅限於同一帳戶下的不同資料夾 (包含共享硬碟), 操作前需先把相關資料夾分享並加到相同帳戶下才不會出錯</strong></p>
-<p>BTW, 在 macOS 安裝 iftop 發生了小問題, 解決紀錄於此: <a href="https://kywk.github.io/moco/posts/macos/macos_install-iftop/">macOS 安裝 iftop 失敗與解決方式 · moco</a></p>
+<p>BTW, 在 macOS 安裝 iftop 發生了小問題, 解決紀錄於此: <a href="https://peirong26.github.io/posts/macos/macos_install-iftop/">macOS 安裝 iftop 失敗與解決方式 · moco</a></p>
 <h2 id="see-also">See Also</h2>
 <h3 id="rclone-configure-file">rclone configure file</h3>
 <p>在 macOS, Linux 環境下, rclone 設置檔存放在 <code>$HOME/.config/rclone/rclone.conf</code>
@@ -1313,10 +1313,10 @@ $ ln -sfF ~/Dropbox/config/rclone .config/rclone
         
         <item>
             <title>macOS 安裝 iftop 失敗與解決方式</title>
-            <link>https://kywk.github.io/moco/posts/2020/12/macos_install-iftop/</link>
+            <link>https://peirong26.github.io/posts/2020/12/macos_install-iftop/</link>
             <pubDate>Mon, 07 Dec 2020 16:48:04 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2020/12/macos_install-iftop/</guid>
+            <guid>https://peirong26.github.io/posts/2020/12/macos_install-iftop/</guid>
             <description>測試 Rclone 伺服機端傳輸時發覺 macOS 並無 iftop 指令, 習慣性地用 brew 安裝了.
 $ brew install iftop ... ... iftop requires root privileges so you will need to run `sudo iftop`. You should be certain that you trust any software you grant root privileges. 安裝完成後提示 iftop 這個指令需要用 root 權限執行.
 然而使用 sudo iftop 之後卻出現 command not found 的錯誤.
@@ -1346,10 +1346,10 @@ sudo: iftop: command not found
         
         <item>
             <title>Porting Hexo tags to Hugo shortcode</title>
-            <link>https://kywk.github.io/moco/posts/2020/10/porting-hexo-tags/</link>
+            <link>https://peirong26.github.io/posts/2020/10/porting-hexo-tags/</link>
             <pubDate>Sat, 24 Oct 2020 17:05:52 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2020/10/porting-hexo-tags/</guid>
+            <guid>https://peirong26.github.io/posts/2020/10/porting-hexo-tags/</guid>
             <description>Hexo 標籤 Hexo 標籤外掛是用於在文章中快速插入特定內容的外掛, 有幾種方式擴充:
   內建標籤:
 Hexo 內建標籤有常用的 Block Quote, Gist, iframe, Youtube, &amp;hellip; 包含 Markdown 不支援但常用的 HTML 語法, 影音嵌入, 程式片斷嵌入&amp;hellip;等.
@@ -1766,7 +1766,7 @@ Hexo 主題可以提供該主題內建支援的標籤, 主題內透過外掛的�
 </ul>
 <p><em>2020.10.24 Hexo blockquote 參數部分陸續補齊</em></p>
 <h3 id="obsidian-invisible-block">Obsidian (Invisible Block)</h3>
-<p>如<a href="https://kywk.github.io/moco/posts/hugo/from-hexo-to-hugo/">從 Hexo 到 Hugo</a>
+<p>如<a href="https://peirong26.github.io/posts/hugo/from-hexo-to-hugo/">從 Hexo 到 Hugo</a>
 中所提及的, 我的 blog 資料夾是放在 Obsidian Vault 中,
 為了可以正常使用 Obsidian 標籤, 區塊連結, 反向連結等功能, 文章中穿插了不少 Obsidian 的語法.
 這些語法雖不會造成 Hugo 錯誤, 但部落格文章中有奇怪的語法總是怪.</p>
@@ -1787,10 +1787,10 @@ Hexo 主題可以提供該主題內建支援的標籤, 主題內透過外掛的�
         
         <item>
             <title>從 Hexo 到 Hugo</title>
-            <link>https://kywk.github.io/moco/posts/2020/10/from-hexo-to-hugo/</link>
+            <link>https://peirong26.github.io/posts/2020/10/from-hexo-to-hugo/</link>
             <pubDate>Wed, 14 Oct 2020 15:08:05 +0800</pubDate>
             
-            <guid>https://kywk.github.io/moco/posts/2020/10/from-hexo-to-hugo/</guid>
+            <guid>https://peirong26.github.io/posts/2020/10/from-hexo-to-hugo/</guid>
             <description>本文以 Hugo v0.76.2 編寫介紹, 其他版本若步驟或訊息內容不符, 請以官方文件為準
 從 Hexo 到 Hugo 沒想過會再次開始寫 Blog, 多事的 2020 太多意外, 覺得需要即時一一進行想做的事.
 於是重新開始了 Blog, 把想做的事完成, 紀錄, 然後放水流, 繼續&amp;hellip;
