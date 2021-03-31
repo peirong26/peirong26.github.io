@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Peirong Liu</title>
+    
+    
+    
+    <link>/</link>
+    <description>Recent content on Peirong Liu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blabla</title>
+      <link>/post/hello/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hello/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/hello.jpg&#34;/&gt;
+          
+        
+        
+        
+          Something should be posted here, but this person is so lazy ~
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>
+        
+          &lt;img src=&#34;/img/me.jpg&#34;/&gt;
+          
+        
+        
+        
+          Hi there ~ My name is Peirong Liu (刘沛榕), I am a 3rd year PhD student in Computer Science at UNC-Chapel Hill, where I am fortunate to be advised by Dr. Marc Niethammer. Before this, I received my bachelor’s degree in Mathematics from Shanghai University, where I graduated with class rank 1/305, and was awarded the President&amp;rsquo;s List, National Fellowship, Baogang Fellowship, and Outstanding Graduate in Shanghai, China.
+My research interests center on machine learning, computer vision and medical imaging.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>News</title>
+      <link>/news/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/news/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          2021 03.22 ~ I will join Facebook AI&amp;rsquo;s Computer Vision team as a Research Intern for Summer 2021.
+03.01 ~ One paper accepted as Oral at CVPR 2021, &amp;ldquo;Discovering Hidden Physics Behind Transport Dynamics&#39;&#39; [pdf]
+2020 09.05 ~ New preprint on Arxiv: &amp;ldquo;Perfusion Imaging: A Data Assimilation Approach&#39;&#39; [pdf]
+08.12 ~ New preprint on Arxiv: &amp;ldquo;Local Temperature Scaling for Probability Calibration&#39;&#39; [pdf]
+06.23 ~ One paper accepted at MICCAI 2020, &amp;ldquo;Fluid Registration Between Lung CT and Stationary Chest Tomosynthesis Images&#39;&#39; [pdf]
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
