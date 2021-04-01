@@ -67,7 +67,7 @@ My research interests center on machine learning, computer vision and medical im
         
         
         
-          A little history ~ I was born in Ganzhou, Jiangxi, China. My hometown is well-known for its hundred-year old banyan trees (榕树) along the Gan River. Banyan&amp;rsquo;s seeds typically germinate in a crack and their roots seek out water deep underground. This is where my first name &amp;ldquo;沛榕&amp;rdquo; came from, with my parents wish for me to keep eyes on the stars, while feet on the ground.
+          A little history ~ I was born in Ganzhou, Jiangxi, China. My hometown is well-known for its hundred-year old banyan trees (榕树) along the Gan River. Banyan&amp;rsquo;s seeds typically germinate in a crack and their roots seek out water deep underground. This is where my first name &amp;ldquo;沛榕&amp;rdquo; came from, with my parents&#39; wish for me to keep eyes on the stars, while feet on the ground.
 About color ~ Green is always my favorite color.
           
         
@@ -90,9 +90,31 @@ About color ~ Green is always my favorite color.
         
           2021 03.22 ~ Joining Facebook AI&amp;rsquo;s Computer Vision team as a Research Intern for Summer 2021.
 03.01 ~ One paper accepted as Oral at CVPR 2021, &amp;ldquo;Discovering Hidden Physics Behind Transport Dynamics&#39;&#39; [pdf]
-2020 09.05 ~ New preprint on Arxiv: &amp;ldquo;Perfusion Imaging: A Data Assimilation Approach&#39;&#39; [pdf]
-08.12 ~ New preprint on Arxiv: &amp;ldquo;Local Temperature Scaling for Probability Calibration&#39;&#39; [pdf]
+2020 09.05 ~ New preprint on arXiv: &amp;ldquo;Perfusion Imaging: A Data Assimilation Approach&#39;&#39; [pdf]
+08.12 ~ New preprint on arXiv: &amp;ldquo;Local Temperature Scaling for Probability Calibration&#39;&#39; [pdf]
 08.15 ~ Awarded the MICCAI Student Travel Award, Lima, Peru
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Papers</title>
+      <link>/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          2021 Peirong Liu, Lin Tian, Yubo Zhang, Stephen R. Aylward, Yueh Z. Lee, Marc Niethammer. &amp;ldquo;Discovering Hidden Physics Behind Transport Dynamics&amp;rdquo;. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), Virtual, 2021. (Oral - 3.7%)
+2020 Peirong Liu, Yueh Z. Lee, Stephen R. Aylward, Marc Niethammer. &amp;ldquo;Perfusion Imaging: A Data Assimilation Approach&amp;rdquo;. arXiv preprint, 2020.
+Zhipeng Ding, Xu Han, Peirong Liu, Marc Niethammer. &amp;ldquo;Local Temperature Scaling for Probability Calibration&amp;rdquo;. arXiv preprint, 2020.
           
         
         </description>

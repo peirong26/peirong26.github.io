@@ -8,9 +8,9 @@ title: "News"
 03.01 ~ One paper accepted as **Oral** at [CVPR 2021](http://cvpr2021.thecvf.com/), "Discovering Hidden Physics Behind Transport Dynamics'' [[pdf]](https://arxiv.org/abs/2011.12222)
 
 ## 2020
-09.05 ~ New preprint on Arxiv: "Perfusion Imaging: A Data Assimilation Approach'' [[pdf]](https://arxiv.org/abs/2009.02796)
+09.05 ~ New preprint on arXiv: "Perfusion Imaging: A Data Assimilation Approach'' [[pdf]](https://arxiv.org/abs/2009.02796)
 
-08.12 ~ New preprint on Arxiv: "Local Temperature Scaling for Probability Calibration'' [[pdf]](https://arxiv.org/abs/2008.05105)
+08.12 ~ New preprint on arXiv: "Local Temperature Scaling for Probability Calibration'' [[pdf]](https://arxiv.org/abs/2008.05105)
 
 08.15 ~ Awarded the MICCAI Student Travel Award, Lima, Peru
 
