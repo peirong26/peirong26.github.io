@@ -34,7 +34,7 @@ paginate = 10
 
     [languages.en.params.logo] 
       logoText = "$ cd /home/peirong"
-      logoHomeLink = "/me"
+      logoHomeLink = "/"
     # or
     #
     # path = "/img/your-example-logo.svg"
