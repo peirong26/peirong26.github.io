@@ -22,12 +22,12 @@ paginate = 10
     #subtitle = "Peirong"
     keywords = ""
     copyright = ""
-    #menuMore = "Show more"
-    #writtenBy = "Written by"
-    #readMore = "Read more"
-    #readOtherPosts = "Read other posts"
-    #newerPosts = "Newer posts"
-    #olderPosts = "Older posts"
+    menuMore = "Show more"
+    writtenBy = "Written by"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    newerPosts = "Newer posts"
+    olderPosts = "Older posts"
     #minuteReadingTime = "min read"
     dateFormatSingle = "2006-01-02"
     dateFormatList = "2006-01-02"
@@ -59,18 +59,13 @@ paginate = 10
         url = "/misc"   
 	
       [[languages.en.menu.main]]
-        identifier = "publications"
+        identifier = "papers"
         name = "Papers"
-        url = "/publications" 
+        url = "/papers" 
 	weight = "500"
 	
       [[languages.en.menu.main]]
         identifier = "posts"
         name = "Posts"
         url = "/posts" 
-	weight = "0"
-
-      [[languages.en.menu.main]]
-        identifier = "cv"
-        name = "Resume/CV"
-        url = "/cv_peirong.pdf"  
+	weight = "0"  
