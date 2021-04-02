@@ -1,4 +1,4 @@
 ---
 layout: default
-baseurl = "/about"
+baseurl = "/"
 ---
