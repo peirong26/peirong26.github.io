@@ -3,7 +3,7 @@ title: "News"
 ---
 ## 2021
 
-03.22 ~ Joining [Facebook AI](https://ai.facebook.com/)'s Computer Vision team as a Research Intern for Summer 2021.
+03.22 ~ Joining [Facebook AI](https://ai.facebook.com/)'s Computer Vision team as a Research Intern for Summer 2021
 
 03.01 ~ One paper accepted as **Oral** at [CVPR 2021](http://cvpr2021.thecvf.com/), "Discovering Hidden Physics Behind Transport Dynamics'' [[pdf]](https://arxiv.org/abs/2011.12222)
 
