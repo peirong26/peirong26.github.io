@@ -10,7 +10,7 @@ title: "News"
 ## 2020
 09.05 ~ New preprint on arXiv: "Perfusion Imaging: A Data Assimilation Approach'' [[pdf](https://arxiv.org/abs/2009.02796)]
 
-08.12 ~ New preprint on arXiv: "Local Temperature Scaling for Probability Calibration'' [pdf]](https://arxiv.org/abs/2008.05105)]
+08.12 ~ New preprint on arXiv: "Local Temperature Scaling for Probability Calibration'' [[pdf](https://arxiv.org/abs/2008.05105)]
 
 08.15 ~ Awarded the MICCAI Student Travel Award, Lima, Peru
 
