@@ -28,7 +28,7 @@ title: "News"
 
 ## 2018
 
-08.21 ~ Joined as a PhD student in the Dept. of Computer Science at UNC-Chapel Hill
+08.21 ~ Joined as a PhD student in the Dept. of Computer Science at [UNC-Chapel Hill](https://www.unc.edu/)
 
 06.22 ~ Received the B.S. in Mathematics from Shanghai University
 
