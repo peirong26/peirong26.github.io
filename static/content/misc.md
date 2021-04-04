@@ -22,7 +22,7 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 - Guzheng: Zhongshan Wang (王中山) - "夜深沉", "临安遗恨", "云裳诉"
 - Piano: David Lanz - ''Christofori's Dream", "Lost in Paradise", "Return to the Heart"
 - Chinese: Cheer Chen (陈绮贞) - "小步舞曲", "距离", “80\%完美的日子”
-- Korean: TaeYeon (金泰妍) - "기억을걷는시간", “만약에”, "가까이"
+- Korean: Taeyeon (태연) - "기억을걷는시간", “만약에”, "가까이"
 - Japanese: Aoi Teshima (手嶌葵) - "赤い糸", "ただいま", "明日への手紙"
 - German: Lena Meyer-Landrut - "dear L", "scared", "Push Forward"
 - Australian: Troye Sivan - "TALK ME DOWN", "Plum", "Strawberries & Cigarettes"
