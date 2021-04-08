@@ -17,7 +17,7 @@ Now I am a member of Duke Music Ensemble, we practice together every week. I was
 
 ## Random talk about music ~
 
-I am well-known among my friends for being a huge music lover. I am enthusiastic about a wide range of musical genres, from Chinese traditional music, to Country, Electronic, New-age, R&B, Hip-hop, Alternative, C-pop, K-pop, J-pop... Here is a glance of my favorites:
+I am well-known among my friends for being a huge music lover. I am enthusiastic about a wide range of musical genres, from Chinese traditional music, to Country, Electronic, Alternative, New-age, R&B, Hip-hop, Rock, Dance, C-pop, K-pop, J-pop... Here is a glance of my favorites:
 
 - Guzheng: Zhongshan Wang (王中山) - "夜深沉", "临安遗恨", "云裳诉"
 - Piano: David Lanz - ''Christofori's Dream", "Lost in Paradise", "Return to the Heart"
@@ -25,6 +25,8 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 - Korean: Taeyeon (태연) - "기억을걷는시간", “만약에”, "가까이"
 - Japanese: Aoi Teshima (手嶌葵) - "赤い糸", "ただいま", "明日への手紙"
 - German: Lena Meyer-Landrut - "dear L", "scared", "Push Forward"
+- Swedish: Roxette - "Listen to Your Heart", "The Centre of the Heart", "Dangerous"
+- Netherland: Shocking Blue - "Venus", "Out of Sight Out of Mind" , "California Here I Come"
 - Australian: Troye Sivan - "TALK ME DOWN", "Plum", "Strawberries & Cigarettes"
 - American: 
   - Sasha Sloan - "Smiling When I Die", "This Town", "House With No Mirrors"
