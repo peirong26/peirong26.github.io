@@ -26,7 +26,7 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 - Japanese: Aoi Teshima (手嶌葵) - "赤い糸", "ただいま", "明日への手紙"
 - German: Lena Meyer-Landrut - "dear L", "scared", "Push Forward"
 - Swedish: Roxette - "Listen to Your Heart", "The Centre of the Heart", "Dangerous"
-- Netherland: Shocking Blue - "Venus", "Out of Sight Out of Mind" , "California Here I Come"
+- Netherlandish: Shocking Blue - "Venus", "Out of Sight Out of Mind" , "California Here I Come"
 - Australian: Troye Sivan - "TALK ME DOWN", "Plum", "Strawberries & Cigarettes"
 - American: 
   - Sasha Sloan - "Smiling When I Die", "This Town", "House With No Mirrors"
