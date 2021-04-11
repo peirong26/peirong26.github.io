@@ -22,14 +22,17 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 - Guzheng: Zhongshan Wang (王中山) - "夜深沉", "临安遗恨", "云裳诉"
 - Piano: David Lanz - ''Christofori's Dream", "Lost in Paradise", "Return to the Heart"
 - Chinese: Cheer Chen (陈绮贞) - "小步舞曲", "距离", “80\%完美的日子”
-- Korean: Taeyeon (태연) - "기억을걷는시간", “만약에”, "가까이"
+- Korean: 
+  - Taeyeon (태연) - "기억을걷는시간", “If”, "Closer"
+  - IU (아이유) - "Meaning of You", "Friday", “My Old Story”
 - Japanese: Aoi Teshima (手嶌葵) - "赤い糸", "ただいま", "明日への手紙"
 - German: Lena Meyer-Landrut - "dear L", "scared", "Push Forward"
 - Swedish: Roxette - "Listen to Your Heart", "The Centre of the Heart", "Dangerous"
 - Netherlandish: Shocking Blue - "Venus", "Out of Sight Out of Mind" , "California Here I Come"
 - Australian: Troye Sivan - "TALK ME DOWN", "Plum", "Strawberries & Cigarettes"
 - American: 
-  - Sasha Sloan - "Smiling When I Die", "This Town", "House With No Mirrors"
+  - Sasha Sloan - "Smiling When I Die", "Dancing with Your Ghost", "Older"
+  - Unloved - "Strange Effect", "Devils Angel", "If"
   - Charlie Puth - "Look At Me Now", "The Way I Am", "Dangerously"
   - Taylor Swift - "Breathe", "The Best Day", "Enchanted"
   - Maroon 5 - "She Will Be Loved", "Lost Stars", "Memories"
