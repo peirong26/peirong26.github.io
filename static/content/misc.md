@@ -22,7 +22,7 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 - Guzheng: Zhongshan Wang (王中山) - "夜深沉", "临安遗恨", "云裳诉"
 - Piano: David Lanz - ''Christofori's Dream", "Lost in Paradise", "Return to the Heart"
 - American: 
-  - Cigarettes After Sex - "Apocalypse", "K.", "John Wayne"
+  - Cigarettes After Sex - "Apocalypse", "K.", "Touch"
   - Unloved - "Strange Effect", "Devils Angel", "If"
   - Sasha Sloan - "Smiling When I Die", "Dancing with Your Ghost", "Older"
   - Charlie Puth - "Look At Me Now", "The Way I Am", "Dangerously"
@@ -37,16 +37,6 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 - Netherlandish: Shocking Blue - "Venus", "Out of Sight Out of Mind" , "California Here I Come"
 - Australian: Troye Sivan - "TALK ME DOWN", "Plum", "Strawberries & Cigarettes"
 - ......
-
-I usually shuffle my new-age acoustic playlist when I study, instrumental beats make me feel refreshed.
  
 Of course, I spent a lot of \$\$\$\$ on buying albums, headsets, music players and merchandises (*/ω＼*)... Anyway, music is the largest source of my happiness ~
-  
-  
-## Something more ~
 
-I love running, but only when my earbuds are on ;-)
-
-I like hiking with my friends, and eating ice creams afterwards
-
-Lately, I have a crush on Lego. My first Lego is [Ideas Grand Piano](https://www.lego.com/en-us/product/grand-piano-21323), hope I can post my finished work here very soon ~
