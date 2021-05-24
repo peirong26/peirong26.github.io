@@ -15,19 +15,19 @@
     
     
     <item>
-      <title>My first post</title>
-      <link>/posts/hello/</link>
+      <title>Road Trip to Virginia Beach</title>
+      <link>/posts/va_trip/</link>
       <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/hello/</guid>
+      <guid>/posts/va_trip/</guid>
       <description>
         
-          &lt;img src=&#34;/img/hello.png&#34;/&gt;
+          &lt;img src=&#34;/img/va/1.jpg&#34;/&gt;
           
         
         
         
-          Something should be posted here, but this person is so lazy ~
+          Something should be written here, but this person is so lazy&amp;hellip;
           
         
         </description>
@@ -41,7 +41,7 @@
       <guid>/me/</guid>
       <description>
         
-          &lt;img src=&#34;/img/me.jpg&#34;/&gt;
+          &lt;img src=&#34;/img/bike.jpg&#34;/&gt;
           
         
         
@@ -88,11 +88,11 @@ About color ~ Green is always my favorite color.
         
         
         
-          2021 04.17 ~ Serve as a reviewer for ICCV 2021
+          2021 05.23 ~ One paper accepted to IEEE TMI, &amp;ldquo;Perfusion Imaging: An Advection Diffusion Approach&#39;&#39; [Paper to appear]
+04.17 ~ Serve as a reviewer for ICCV 2021
 03.22 ~ Joining as a Research Intern at Facebook AI&amp;rsquo;s Computer Vision team for Summer 2021
 03.01 ~ One paper accepted as Oral at CVPR 2021, &amp;ldquo;Discovering Hidden Physics Behind Transport Dynamics&#39;&#39; [pdf]
 2020 09.05 ~ New preprint on arXiv: &amp;ldquo;Perfusion Imaging: A Data Assimilation Approach&#39;&#39; [pdf]
-08.12 ~ New preprint on arXiv: &amp;ldquo;Local Temperature Scaling for Probability Calibration&#39;&#39; [pdf]
           
         
         </description>

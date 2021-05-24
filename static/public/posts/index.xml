@@ -15,19 +15,19 @@
     
     
     <item>
-      <title>My first post</title>
-      <link>/posts/hello/</link>
+      <title>Road Trip to Virginia Beach</title>
+      <link>/posts/va_trip/</link>
       <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/hello/</guid>
+      <guid>/posts/va_trip/</guid>
       <description>
         
-          &lt;img src=&#34;/img/hello.png&#34;/&gt;
+          &lt;img src=&#34;/img/va/1.jpg&#34;/&gt;
           
         
         
         
-          Something should be posted here, but this person is so lazy ~
+          Something should be written here, but this person is so lazy&amp;hellip;
           
         
         </description>
