@@ -23,10 +23,10 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 - Piano: David Lanz - ''Christofori's Dream", "Lost in Paradise", "Return to the Heart"
 - America: 
   - Cigarettes After Sex - "Apocalypse", "K.", "Touch"
-  - Unloved - "Strange Effect", "Devils Angel", "If"
+  - Unloved - "Strange Effect", "When a Woman Is Around", "Guilty of Love"
   - Sasha Sloan - "Smiling When I Die", "Dancing with Your Ghost", "Older"
-  - Charlie Puth - "Look At Me Now", "The Way I Am", "Dangerously"
   - Taylor Swift - "Breathe", "The Best Day", "Enchanted"
+  - Charlie Puth - "Look At Me Now", "The Way I Am", "Dangerously"
 - England: Oh Wonder - "Technicolour Beat", "Without You", "Livewire"
 - Germany: Lena Meyer-Landrut - "dear L", "scared", "Push Forward"
 - Sweden: Roxette - "Listen to Your Heart", "The Centre of the Heart", "Dangerous"
