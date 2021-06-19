@@ -25,6 +25,7 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
   - Cigarettes After Sex - "Apocalypse", "K.", "Touch"
   - Unloved - "Strange Effect", "When a Woman Is Around", "Guilty of Love"
   - Sasha Sloan - "Smiling When I Die", "Dancing with Your Ghost", "Older"
+  - Maroon 5 - "The Sun", "She Will Be Loved", "The Air That I Breathe"
   - Taylor Swift - "Breathe", "The Best Day", "Enchanted"
   - Charlie Puth - "Look At Me Now", "The Way I Am", "Dangerously"
 - England: Oh Wonder - "Technicolour Beat", "Without You", "Livewire"
