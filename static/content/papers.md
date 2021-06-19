@@ -2,6 +2,7 @@
 title: "Papers"  
 ---
 ## 2021
+**Peirong Liu**, Yueh Z. Lee, Stephen R. Aylward, Marc Niethammer. "[Perfusion Imaging: An Advection Diffusion Approach](https://ieeexplore.ieee.org/abstract/document/9446948)". *IEEE Transactions on Medical Imaging, 2021.*
 
 **Peirong Liu**, Lin Tian, Yubo Zhang, Stephen R. Aylward, Yueh Z. Lee, Marc Niethammer. "[Discovering Hidden Physics Behind Transport Dynamics](https://arxiv.org/abs/2011.12222)". *IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), Virtual, 2021.* (**Oral** - 3.7\%)
 
