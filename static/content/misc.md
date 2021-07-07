@@ -3,7 +3,7 @@ title: "Misc"
 ---
 
 ## A little history ~
-I was born in Ganzhou, Jiangxi, China. My hometown is well-known for its hundred-year old banyan trees (榕树) along the Gan River. Banyan's seeds typically germinate in a crack and their roots seek out water deep underground. This is where my first name "沛榕" came from, with my parents' wish for me to keep eyes on the stars, while feet on the ground.
+I was born in Ganzhou, China, in the year of Ox. My hometown is well-known for its hundred-year old banyan trees (榕树) along the Gan River. Banyan's seeds typically germinate in a crack and their roots seek out water deep underground. This is where my first name "沛榕" came from, with my parents' wish for me to keep eyes on the stars, while feet on the ground.
 
 ## About color ~
 Green is always my favorite color. I realized it since I was a little girl, and there is no second choice in my mind.
@@ -21,20 +21,18 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 
 - Guzheng: Zhongshan Wang (王中山) - "夜深沉", "临安遗恨", "云裳诉"
 - Piano: David Lanz - ''Christofori's Dream", "Lost in Paradise", "Return to the Heart"
-- America: 
-  - Clairo - "Alewife", "Feel Something", "Heaven"  
+- U.S.: 
+  - Clairo Cottrill- "Alewife", "Bags", "Feel Something"  
   - Cigarettes After Sex - "Apocalypse", "K.", "Touch"
+  - Jennifer Ognibene - "Case Study B", "Come Get Me", "Funeral for My Former Self"
   - Unloved - "Strange Effect", "When a Woman Is Around", "Guilty of Love"
-  - Sasha Sloan - "Smiling When I Die", "Dancing with Your Ghost", "Older"
-  - Maroon 5 - "The Sun", "She Will Be Loved", "The Air That I Breathe"
+  - Sasha Sloan - "Smiling When I Die", "Runaway", "Hypochondriac"
 - England: Oh Wonder - "Technicolour Beat", "Without You", "Livewire"
 - Germany: Lena Meyer-Landrut - "dear L", "scared", "Push Forward"
 - Sweden: Roxette - "Listen to Your Heart", "The Centre of the Heart", "Dangerous"
 - Netherland: Shocking Blue - "Venus", "Out of Sight Out of Mind" , "California Here I Come"
 - Australia: Troye Sivan - "Take Yourself Home", "TALK ME DOWN", "Plum"
-- Korea: 
-  - Taeyeon (태연) - "기억을걷는시간", “If”, "Closer"
-  - IU (아이유) - "Meaning of You", "Friday", “My Old Story”
+- Korea: Taeyeon (태연) - "기억을걷는시간", “If”, "Closer" 
 - China: Cheer Chen (陈绮贞) - "小步舞曲", "距离", “80\%完美的日子”
 - Japan: Aoi Teshima (手嶌葵) - "赤い糸", "ただいま", "明日への手紙"
 - ......
