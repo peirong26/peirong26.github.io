@@ -10,6 +10,6 @@ My name is **Peirong Liu (刘沛榕)**, I am a 3rd year PhD student in Computer 
 
 My research interests center on machine learning, computer vision and medical imaging. My recent research include:
 - Deep PDE-based learning for transport (e.g., fluid flow, mass diffusion) time-series
-- Video animation, motion transfer
+- Video reconstruction, motion transfer
 - Fluid flow simulation, lesion detection and localization
 - Non-rigid deformation and image registration
