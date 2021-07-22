@@ -3,6 +3,8 @@ title: "News"
 ---
 ## 2021
 
+07.22 ~ One paper accepted at [ICCV 2021](http://iccv2021.thecvf.com/home), "Local Temperature Scaling for Probability Calibration'' [[pdf](https://arxiv.org/abs/2008.05105)]
+
 05.23 ~ One paper accepted to [IEEE TMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=42), "Perfusion Imaging: An Advection Diffusion Approach'' [Paper to appear]
 
 04.17 ~ Serve as a reviewer for [ICCV 2021](http://iccv2021.thecvf.com)

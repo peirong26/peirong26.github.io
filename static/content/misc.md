@@ -22,7 +22,7 @@ I am well-known among my friends for being a huge music lover. I am enthusiastic
 - Guzheng: Zhongshan Wang (王中山) - "夜深沉", "临安遗恨", "云裳诉"
 - Piano: David Lanz - ''Christofori's Dream", "Lost in Paradise", "Return to the Heart"
 - U.S.: 
-  - Claire Cottrill- "Alewife", "North", "Bags"  
+  - Claire Cottrill- "Alewife", "North", "Partridge"  
   - Cigarettes After Sex - "Apocalypse", "K.", "Touch"
   - Jennifer Ognibene - "Case Study B", "Come Get Me", "Funeral for My Former Self"
   - Unloved - "Strange Effect", "When a Woman Is Around", "Guilty of Love"
