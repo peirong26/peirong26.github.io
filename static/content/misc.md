@@ -17,12 +17,12 @@ Now I am a member of Duke Music Ensemble, we practice together every week. I was
 
 ## Random talk about music ~
 
-I am well-known among my friends for being a huge music lover. I am enthusiastic about a wide range of musical genres, from Chinese traditional music, to Country, Electronic, Alternative, New-age, R&B, Hip-hop, Rock, Dance, C-pop, K-pop, J-pop... Among them my favorite one is Alternative rock. Here is a glance of my favorites:
+I am well-known among my friends for being a huge music lover. I am enthusiastic about a wide range of musical genres, from Chinese traditional music to Country, Electronic, Alternative, New-age, R&B, Rock, Dance, Pop, K-pop...  Among them my favorites are Alternative rock and Indie pop. Here is a glance of my favorites:
 
 - Guzheng: Zhongshan Wang (王中山) - "夜深沉", "临安遗恨", "云裳诉"
 - Piano: David Lanz - ''Christofori's Dream", "Lost in Paradise", "Return to the Heart"
 - U.S.: 
-  - Claire Cottrill- "Alewife", "North", "Partridge"  
+  - Claire Cottrill- "Alewife", "North", "Amoeba"  
   - Cigarettes After Sex - "Apocalypse", "K.", "Touch"
   - Jennifer Ognibene - "Case Study B", "Come Get Me", "Funeral for My Former Self"
   - Unloved - "Strange Effect", "When a Woman Is Around", "Guilty of Love"
