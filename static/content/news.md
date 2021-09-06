@@ -3,6 +3,8 @@ title: "News"
 ---
 ## 2021
 
+09.06 ~ I will return to [Facebook AI](https://ai.facebook.com)'s Computer Vision team as a Research Intern for Summer 2022
+
 07.22 ~ One paper accepted at [ICCV 2021](http://iccv2021.thecvf.com/home), "Local Temperature Scaling for Probability Calibration'' [[pdf](https://arxiv.org/abs/2008.05105)]
 
 05.23 ~ One paper accepted to [IEEE TMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=42), "Perfusion Imaging: An Advection Diffusion Approach'' [Paper to appear]
