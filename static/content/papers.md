@@ -3,6 +3,8 @@ title: "Papers"
 ---
 ## 2021
 
+**Peirong Liu**, Rui Wang, Xuefei Cao, Yipin Zhou, Ashish Shah, Maxime Oquab, Camille Couprie, Ser-Nam Lim. "[Self-appearance-aided Differential Evolution for Motion Transfer](https://arxiv.org/abs/2110.04658)". *arXiv preprint, 2021.*
+
 Zhipeng Ding, Xu Han, **Peirong Liu**, Marc Niethammer. "[Local Temperature Scaling for Probability Calibration](https://arxiv.org/abs/2008.05105)". *IEEE/CVF International Conference on Computer Vision (ICCV), Virtual, 2021.*
 
 **Peirong Liu**, Yueh Z. Lee, Stephen R. Aylward, Marc Niethammer. "[Perfusion Imaging: An Advection Diffusion Approach](https://ieeexplore.ieee.org/abstract/document/9446948)". *IEEE Transactions on Medical Imaging, 2021.*

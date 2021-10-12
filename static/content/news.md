@@ -3,6 +3,10 @@ title: "News"
 ---
 ## 2021
 
+10.12 ~ New preprint on arXiv: "Self-appearance-aided Differential Evolution for Motion Transfer'' [[pdf](https://arxiv.org/abs/2110.04658)]
+
+09.28 ~ One paper accepted at [NeurIPS 2021](https://nips.cc/)
+
 09.06 ~ I will return to [Facebook AI](https://ai.facebook.com)'s Computer Vision team as a Research Intern for Summer 2022
 
 07.22 ~ One paper accepted at [ICCV 2021](http://iccv2021.thecvf.com/home), "Local Temperature Scaling for Probability Calibration'' [[pdf](https://arxiv.org/abs/2008.05105)]
