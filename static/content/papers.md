@@ -5,8 +5,6 @@ title: "Papers"
 
 **Peirong Liu**, Rui Wang, Xuefei Cao, Yipin Zhou, Ashish Shah, Maxime Oquab, Camille Couprie, Ser-Nam Lim. "[Self-appearance-aided Differential Evolution for Motion Transfer](https://arxiv.org/abs/2110.04658)". *arXiv preprint, 2021.*
 
-Zhengyang Shen, Jean Feydy, **Peirong Liu**, Ariel Hern\'an Curiale, Ruben San Jos\'e Est\'epar, Ra\'ul San Jo\'e Est\'epar, Marc Niethammer. "[Accurate Point Cloud Registration with Robust Optimal Transport](https://openreview.net/forum?id=TlE6Ar1sRsR)". *Thirty-Fifth Conference on Neural Information Processing Systems (NeurIPS), Virtual, 2021.*
-
 Zhipeng Ding, Xu Han, **Peirong Liu**, Marc Niethammer. "[Local Temperature Scaling for Probability Calibration](https://arxiv.org/abs/2008.05105)". *IEEE/CVF International Conference on Computer Vision (ICCV), Virtual, 2021.*
 
 **Peirong Liu**, Yueh Z. Lee, Stephen R. Aylward, Marc Niethammer. "[Perfusion Imaging: An Advection Diffusion Approach](https://ieeexplore.ieee.org/abstract/document/9446948)". *IEEE Transactions on Medical Imaging, 2021.*
