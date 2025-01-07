@@ -54,7 +54,24 @@
 
 
 
-
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  </style>
 
 
 
@@ -150,8 +167,16 @@
 
       <div class="post"> 
         
-        <center><img src="duke.jpg" alt="Snow" style="width: 250px;"> <span> <img src="climbing.jpg" alt="Forest" style="width: 250px;"> </center> 
-        
+        <center>
+        <div class="row">
+          <div class="column">
+            <img src="duke.jpg" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="climbing.jpg" style="width:100%">
+          </div> 
+        </div>
+      </center>
 
 
   <div class="post">
