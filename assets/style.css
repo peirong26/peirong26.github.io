@@ -17,3 +17,10 @@
   li::marker {
     font-weight: bold;
   }
+
+  img,figcaption {
+    display: inline-block;
+    vertical-align: middle;
+    margin:12px;
+    
+  }
