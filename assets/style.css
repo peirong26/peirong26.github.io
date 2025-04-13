@@ -19,8 +19,9 @@
   }
 
   img,figcaption {
-    display: inline-block;
-    vertical-align: middle;
+    display: inline-table; 
+    vertical-align: middle; 
+    overflow:auto;
     margin:12px;
     
   }
