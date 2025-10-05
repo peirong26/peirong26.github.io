@@ -135,37 +135,11 @@ p, li {
 }
 
 
-/* For very small screens */
-@media (max-width: 480px) {
-  .button, .menu__inner a {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-  .footer__inner {
-    padding: 10px;
-  }
-  .post-title {
-    font-size: 1.6rem;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 480px) {
-  .header__inner,
-  .footer__inner,
-  .post,
-  .content,
-  .container {
-    padding-left: 5px;    /* even smaller padding */
-    padding-right: 5px;
-  }
-}
-
 /* Very small screens */
 @media (max-width: 480px) {
   .button, 
   .menu__inner a {
-    padding: 5px;
+    padding: 0px;
     font-size: 0.9rem;
   }
 
@@ -186,8 +160,8 @@ p, li {
     flex-direction: column;
     align-items: flex-start;  /* left-align flex items */
     text-align: left;         /* left-align text */
-    padding-left: 5px;        /* small left padding */
-    padding-right: 5px;
+    padding-left: 0px;        /* small left padding */
+    padding-right: 0px;
   }
 }
 
