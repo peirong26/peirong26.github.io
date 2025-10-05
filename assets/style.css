@@ -94,17 +94,20 @@ p, li {
 }
 
 /* Mobile layout tweaks */
+
+
 @media (max-width: 768px) {
   .header__inner,
   .footer__inner,
   .post,
-  .content {
+  .content,
+  .container {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;  /* left-align flex items */
+    text-align: left;         /* left-align text */
 
-    padding-left: 10px;   /* smaller left/right padding */
-    padding-right: 10px;
+    padding-left: 0px;   /* smaller left/right padding */
+    padding-right: 0px;
   }
 
   .menu {
@@ -163,6 +166,10 @@ p, li {
     padding-left: 0px;        /* small left padding */
     padding-right: 0px;
   }
+
+  body {
+    margin: 5px;
+  }
 }
 
 /* ==============================
@@ -213,6 +220,10 @@ figure figcaption {
     text-align: center;
     margin-top: 8px;
   }
+
+  body {
+    margin: 5px;
+  }
 }
 
  
@@ -222,11 +233,6 @@ body {
   padding: 0;
 }
 
-@media (max-width: 768px) {
-  body {
-    margin: 20px;
-  }
-}
 
 
 .post-content,
@@ -294,9 +300,3 @@ body {
   width: auto;              /* maintain aspect ratio */
 }
 
-@media (max-width: 768px) {
-  .post-title-container {
-    flex-direction: column;
-    align-items: center;
-  }
-}
