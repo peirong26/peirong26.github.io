@@ -93,6 +93,7 @@ p, li {
   margin: 0.4rem 0.8rem;
 }
 
+
 /* Mobile layout tweaks */
 
 
@@ -300,3 +301,27 @@ body {
   width: auto;              /* maintain aspect ratio */
 }
 
+/* Mobile layout: stack vertically and shrink logo */
+@media (max-width: 768px) {
+  .post-title-container {
+    flex-direction: column;     /* stack logo above heading */
+    align-items: center;        /* center content horizontally */
+    text-align: center;         /* center heading text */
+    gap: 8px;                   /* smaller space between logo and heading */
+  }
+
+  .post-logo {
+    height: 80px;               /* smaller logo on mobile */
+  }
+}
+
+/* Very small screens (optional) */
+@media (max-width: 480px) {
+  .post-logo {
+    height: 60px;               /* further shrink for tiny screens */
+  }
+  
+  .post-title-container h1 {
+    font-size: 1.6rem;          /* adjust heading size for small screens */
+  }
+}
