@@ -290,6 +290,54 @@ body {
 }
 
 
+
+/* Tablet / Small Screens */
+@media (max-width: 768px) {
+  .figure-row {
+    flex-direction: column;  /* stack figures vertically */
+    align-items: center;     /* center figures horizontally */
+    gap: 12px;               /* smaller spacing */
+  }
+
+  .figure-row figure {
+    flex: 1 1 80%;           /* take most of the width */
+    max-width: 90%;          /* prevent overflow */
+  }
+
+  .figure-row figcaption {
+    text-align: center;      /* center caption under image */
+    margin-left: 0;
+    line-height: 1.8;        /* slightly tighter line spacing */
+    font-size: 0.95rem;      /* slightly smaller text */
+  }
+
+  .figure-row img {
+    max-width: 100%;          /* scale image to figure width */
+    height: auto;
+  }
+}
+
+/* Very Small Screens (Phones) */
+@media (max-width: 480px) {
+  .figure-row {
+    gap: 8px;                 /* even smaller spacing */
+  }
+
+  .figure-row figure {
+    flex: 1 1 100%;           /* full width */
+    max-width: 100%;
+  }
+
+  .figure-row figcaption {
+    font-size: 0.9rem;        /* smaller text for tiny screens */
+    line-height: 1.6;
+  }
+}
+
+
+
+
+
 .post-title-container {
   display: flex;
   align-items: center;      /* vertically center the logo and text */
@@ -301,6 +349,7 @@ body {
   width: auto;              /* maintain aspect ratio */
 }
 
+
 /* Mobile layout: stack vertically and shrink logo */
 @media (max-width: 768px) {
   .post-title-container {
@@ -311,17 +360,27 @@ body {
   }
 
   .post-logo {
-    height: 80px;               /* smaller logo on mobile */
+    max-width: 50%;           /* logo scales with container width */
+    height: auto;             /* maintain aspect ratio */
   }
 }
 
-/* Very small screens (optional) */
+
+/* Very small screens (phones ≤480px) */
 @media (max-width: 480px) {
-  .post-logo {
-    height: 60px;               /* further shrink for tiny screens */
+  .post-title-container {
+    flex-direction: column;  /* still stacked */
+    align-items: flex-start; /* left-align logo and heading */
+    text-align: left;        /* left-align text */
+    gap: 6px;                /* tighter spacing */
   }
-  
+
+  .post-logo {
+    max-width: 70%;           /* logo scales even smaller */
+    height: auto;             /* maintain aspect ratio */
+  }
+
   .post-title-container h1 {
-    font-size: 1.6rem;          /* adjust heading size for small screens */
+    font-size: 1.4rem;        /* smaller heading for tiny screens */
   }
 }
