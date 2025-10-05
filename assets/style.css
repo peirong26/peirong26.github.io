@@ -102,6 +102,9 @@ p, li {
     flex-direction: column;
     align-items: center;
     text-align: center;
+
+    padding-left: 10px;   /* smaller left/right padding */
+    padding-right: 10px;
   }
 
   .menu {
@@ -131,6 +134,7 @@ p, li {
   }
 }
 
+
 /* For very small screens */
 @media (max-width: 480px) {
   .button, .menu__inner a {
@@ -145,6 +149,17 @@ p, li {
   }
 }
 
+/* Very small screens */
+@media (max-width: 480px) {
+  .header__inner,
+  .footer__inner,
+  .post,
+  .content,
+  .container {
+    padding-left: 5px;    /* even smaller padding */
+    padding-right: 5px;
+  }
+}
 
 /* ==============================
    Figure with caption on the right
