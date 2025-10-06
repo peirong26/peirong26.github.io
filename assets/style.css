@@ -83,7 +83,7 @@ figure figcaption {
   font-size: 0.9rem;
   color: var(--color);
   text-align: left;
-  max-width: 50%;
+  max-width: 60%;
   line-height: 1.4; 
 }
 
@@ -122,38 +122,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 12px;              /* smaller gap */
-  flex-wrap: wrap;        /* wrap on small screens */
-  margin: 20px 0;
+  gap: 8px;              /* smaller gap */
+  flex-wrap: wrap;        /* wrap on small screens */ 
 } 
-
-.figure-row img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;    /* keeps proportions */
-  border-radius: 4px;
-}
-
+ 
 
 .figure-row figure {
-  display: flex;
-  flex: 1 1 20%; /* equal share of space */
+  display: flex; 
   flex-direction: column;
   align-items: center;   /* centers everything under image */
-  max-width: 35%;
-  margin: 0;
+  max-width: 30%;
+  margin: auto;
 }
 
 .figure-row figcaption {
   width: 100%;
   max-width: 100%;
   text-align: center;       /* text starts from left edge */
-  margin-top: 0;
-  margin-left: 28px;
-  line-height: 1.5; 
-  font-size: 1rem;
-  color: var(--color);
-  padding-left: 0;        /* optional: control left padding */
+  margin-top: auto;
+  margin-left: auto;
+  line-height: clamp(0.8, 2vw, 1.2);
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  color: var(--color); 
 }
 
 
@@ -203,7 +193,8 @@ html, body {
   max-width: 90vw;
   margin: 0 auto;
   padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 1rem; 
+  max-width: 1200px; /* optional: prevent it from stretching too wide */
 }
 
 /* Responsive images and media */
@@ -233,17 +224,23 @@ h4
 {
   font-size: clamp(0.9rem, 2.5vw, 1.3rem);
 }
-a, em, p, strong, li, figcaption,
+a, em, p, strong, li, figcaption, .figure-row figcaption
 .post-content
 {
   font-size: clamp(0.8rem, 2vw, 1.2rem);
   line-height: 1.6;
-} 
-
+}  
+ 
+.footer__inner .copyright, .logo__text,
+.header__right .menu__inner--desktop, .menu__inner--mobile
+{
+  font-size: clamp(1rem, 2vw, 1.4rem); 
+}  
 
 
 /* Adaptive navigation */
 .header,
+.footer, 
 .menu {
   flex-wrap: wrap;
   justify-content: space-between;
@@ -252,10 +249,7 @@ a, em, p, strong, li, figcaption,
 .menu__inner {
   flex-wrap: wrap;
 }
-
-.menu__inner li {
-  margin: 0.4rem 0.8rem;
-}
+ 
 
 
 
