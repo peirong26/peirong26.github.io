@@ -1,5 +1,6 @@
 
 
+
 @font-face{font-family:Inter;font-style:normal;font-weight:400;font-feature-settings:"liga","tnum","case","calt","zero","ss01","locl";src:url(fonts/Inter-Regular.woff2) format("woff2"),url(fonts/Inter-Regular.woff) format("woff");font-display:swap}
 @font-face{font-family:Inter;font-style:italic;font-weight:400;font-feature-settings:"liga","tnum","case","calt","zero","ss01","locl";src:url(fonts/Inter-Italic.woff2) format("woff2"),url(fonts/Inter-Italic.woff) format("woff");font-display:swap}
 @font-face{font-family:Inter;font-style:normal;font-weight:600;font-feature-settings:"liga","tnum","case","calt","zero","ss01","locl";src:url(fonts/Inter-Medium.woff2) format("woff2"),url(fonts/Inter-Medium.woff) format("woff");font-display:swap}
@@ -8,9 +9,11 @@
 @font-face{font-family:Inter;font-style:italic;font-weight:800;font-feature-settings:"liga","tnum","case","calt","zero","ss01","locl";src:url(fonts/Inter-BoldItalic.woff2) format("woff2"),url(fonts/Inter-BoldItalic.woff) format("woff");font-display:swap}:root{--background:#fafafa;--background-secondary:#eaeaea;--header:#fafafa;--color:#222;--color-secondary:#999;--border-color:#dcdcdc;--phoneWidth:(max-width:480px);--tabletWidth:(max-width:900px)}body.dark-theme{--background:#252627;--background-secondary:#3b3d42;--header:#252627;--color:#a9a9b3;--color-secondary:#73747b;--border-color:#4a4b50}.button-container{display:table;margin-left:auto;margin-right:auto}.button,a.button,button{position:relative;display:flex;align-items:center;justify-content:center;padding:8px 18px;margin-bottom:5px;background:#eaeaea;background:var(--background-secondary);text-decoration:none;text-align:center;font-weight:500;border-radius:8px;border:1px solid transparent;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;outline:none}.button.outline,a.button.outline,button.outline{background:transparent;border-color:#eaeaea;border-color:var(--background-secondary);box-shadow:none;padding:8px 18px}.button.outline :hover,a.button.outline :hover,button.outline :hover{transform:none;box-shadow:none}.button.primary,a.button.primary,button.primary{box-shadow:0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08)}.button.primary:hover,a.button.primary:hover,button.primary:hover{box-shadow:0 2px 6px rgba(50,50,93,.21),0 1px 3px rgba(0,0,0,.08)}.button.link,a.button.link,button.link{background:none;font-size:1rem;}.button.small,a.button.small,button.small{font-size:.8rem}.button.wide,a.button.wide,button.wide{min-width:200px;padding:14px 24px}a.read-more,a.read-more:active,a.read-more:hover{display:inline-flex;background:none;box-shadow:none;padding:0;margin:20px 0;font-weight:700}.code-toolbar{margin-bottom:20px}.code-toolbar .toolbar-item a{display:inline-flex;padding:3px 8px;margin-bottom:5px;background:#eaeaea;background:var(--background-secondary);text-decoration:none;text-align:center;font-size:13px;font-weight:500;border-radius:8px;border:1px solid transparent;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;outline:none}.code-toolbar .toolbar-item a,.header{position:relative;align-items:center;justify-content:center}.header{background:#fafafa;background:var(--header);display:flex;padding:20px}.header__right{display:flex;flex-direction:row;align-items:center}
 @-webkit-keyframes cursor{0%{opacity:0}50%{opacity:1}to{opacity:0}}
 @keyframes cursor{0%{opacity:0}50%{opacity:1}to{opacity:0}}.menu{--color:rgba(0,0,0,0.12);--shadow:0 8px 20px var(--color);border-right:1px solid;margin-right:18px;padding-right:24px;font-weight:500}
+ 
 
 @font-face{font-family:'OldEnglish';font-style:normal;font-weight:400;font-feature-settings:"liga","tnum","case","calt","zero","ss01","locl";src:url(fonts/Old-English.woff) format("woff");font-display:swap}
   
+
 @font-face {
     font-family: 'OldEnglish';  /* Choose a descriptive name */
     src: url('fonts/Old-English.woff') format('woff'), /* Replace with your font file path */
@@ -29,10 +32,8 @@
     display: inline-table; 
     vertical-align: middle; 
     overflow:auto;
-    margin:12px; 
+    margin:8px; 
   }
-
-
 
 
 
@@ -72,17 +73,21 @@ img, video, iframe {
 
 /* Adaptive typography */
 h1 {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
 }
 h2 {
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
 }
 h3 {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-size: clamp(1.0rem, 2.5vw, 1.4rem);
 }
-p, li {
-  font-size: clamp(0.95rem, 2vw, 1rem);
-  line-height: 1.6;
+a, em, p, li, figcaption, .post-meta, 
+.post-tags, .archive__group-month-header, .post-content
+menu__inner a, .button, .footer .copyright,
+footer__inner a, .copyright, .logo__text
+{
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  line-height: 1.2;
 }
 
 /* Adaptive navigation */
@@ -101,7 +106,30 @@ p, li {
 }
 
 
+/* Mobile layout tweaks */
+
  
+/* Very small screens */
+
+@media (max-width: 480px) { 
+
+  /* Align content left instead of center */
+  .header__inner,
+  .footer__inner,
+  .post,
+  .content,
+  .container {
+    flex-direction: column;
+    align-items: flex-start;  /* left-align flex items */
+    text-align: left;         /* left-align text */
+    padding-left: 0px;        /* small left padding */
+    padding-right: 0px;
+  }
+
+  body {
+    margin: 5px;
+  }
+}
 
 /* ==============================
    Figure with caption on the right
@@ -203,7 +231,28 @@ body {
 }
 
 
+
+/* Tablet / Small Screens */
  
+
+/* Very Small Screens (Phones) */
+
+@media (max-width: 480px) {
+  .figure-row {
+    gap: 8px;                 /* even smaller spacing */
+  }
+
+  .figure-row figure {
+    flex: 1 1 100%;           /* full width */
+    max-width: 100%;
+  }
+
+  .figure-row figcaption {
+    font-size: 0.9rem;        /* smaller text for tiny screens */
+    line-height: 1.6;
+  }
+}
+
 
 
 
@@ -218,4 +267,22 @@ body {
   height: 150px;             /* adjust size as needed */
   width: auto;              /* maintain aspect ratio */
 }
+
+
+/* Mobile layout: stack vertically and shrink logo */
+
+
+/* Very small screens (phones ≤480px) */
+
+@media (max-width: 480px) {
+  .post-title-container {  
+    text-align: left;        /* left-align text */
+    gap: 1px;                /* tighter spacing */
+  }
+
+  .post-logo {
+    max-width: 30%;           /* logo scales even smaller */
+    height: auto;             /* maintain aspect ratio */
+  }
  
+}
