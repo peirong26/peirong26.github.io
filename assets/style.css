@@ -128,11 +128,11 @@ body {
  
 
 .figure-row figure {
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  align-items: center;   /* centers everything under image */
+  align-items: flex-start;  /* align contents (img + caption) from the top */
   max-width: 30%;
-  margin: auto;
+  margin: 0;                /* remove auto-centering */
 }
 
 .figure-row figcaption {
