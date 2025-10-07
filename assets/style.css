@@ -122,7 +122,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 8px;              /* smaller gap */
+  gap: clamp(5px, 2vw, 25px);
   flex-wrap: wrap;        /* wrap on small screens */ 
 } 
  
@@ -236,6 +236,10 @@ a, em, p, strong, li, figcaption, .figure-row figcaption
 {
   font-size: clamp(1rem, 2vw, 1.4rem); 
 }  
+
+
+
+
 
 
 /* Adaptive navigation */
