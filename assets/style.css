@@ -120,7 +120,7 @@ body {
 
 .figure-row {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: flex-start;
   gap: clamp(5px, 2vw, 25px);
   flex-wrap: wrap;        /* wrap on small screens */ 
@@ -133,8 +133,7 @@ body {
   align-items: flex-start;  /* align contents (img + caption) from the top */
   max-width: 30%;
   margin: 0;                /* remove auto-centering */
-}
-
+} 
 .figure-row figcaption {
   width: 100%;
   max-width: 100%;
@@ -148,6 +147,31 @@ body {
 
 
  
+.figure-row-small {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: clamp(5px, 2vw, 25px);
+  flex-wrap: wrap;        /* wrap on small screens */ 
+} 
+ 
+.figure-row-small figure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* align contents (img + caption) from the top */
+  max-width: 23%;
+  margin: 0;                /* remove auto-centering */
+}
+.figure-row figcaption {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;       /* text starts from left edge */
+  margin-top: auto;
+  margin-left: auto;
+  line-height: clamp(0.8, 2vw, 1.2);
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  color: var(--color); 
+}
 
 
 
@@ -258,4 +282,9 @@ a, em, p, strong, li, figcaption, .figure-row figcaption
 
 
 
- 
+ .back-to-top {
+  position: fixed; /* Fixed position on the screen */
+  bottom: 20px;    /* 20px from the bottom */
+  right: 20px;     /* 20px from the right */
+  /* Add more styling like background, color, padding, etc. */
+}
