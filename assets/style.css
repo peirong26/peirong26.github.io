@@ -90,6 +90,8 @@ figure figcaption {
 figure img,
 figure figcaption {
   align-self: center; /* forces both to align to the middle line */
+  border-radius: 6px;
+  object-fit: cover;
 }
 
 
@@ -260,7 +262,9 @@ a, em, p, strong, li, figcaption, .figure-row figcaption
 {
   font-size: clamp(1rem, 2vw, 1.4rem); 
 }  
-
+.scholar-link a {
+  text-decoration: none;
+}
 
 
 
