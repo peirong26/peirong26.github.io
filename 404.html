@@ -1,5 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <script>
+      (function () {
+        var target = "https://jhuldr.github.io";
+        var path = window.location.pathname.replace(/\/+$/, "") || "/";
 
-<script>
-  window.location.href = "/";
-</script>
+        if (path === "/" || path === "/LDR") {
+          window.location.replace(target + "/");
+          return;
+        }
+        if (path === "/misc" || path === "/group") {
+          window.location.replace(
+            path === "/misc" ? target + "/Peirong/Misc/" : target + "/"
+          );
+          return;
+        }
+        if (path.indexOf("/LDR/") === 0) {
+          window.location.replace(target + path.slice(4) + "/");
+          return;
+        }
 
+        window.location.replace(target + "/");
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="https://jhuldr.github.io/">jhuldr.github.io</a>.</p>
+  </body>
+</html>
