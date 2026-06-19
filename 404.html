@@ -14,12 +14,17 @@
         }
         if (path === "/misc" || path === "/group") {
           window.location.replace(
-            path === "/misc" ? target + "/Peirong/Misc/" : target + "/"
+            path === "/misc" ? target + "/peirong/misc/" : target + "/"
           );
           return;
         }
         if (path.indexOf("/LDR/") === 0) {
-          window.location.replace(target + path.slice(4) + "/");
+          var sub = path.slice(4).toLowerCase();
+          if (sub === "/publications") {
+            window.location.replace(target + "/#publications");
+            return;
+          }
+          window.location.replace(target + sub + "/");
           return;
         }
 
